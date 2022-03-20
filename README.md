@@ -1,5 +1,5 @@
 # Kebeleye
-Group members              Id No                 Section
+Group members Name             Id No              Section
 1. Samuel Girma .......... UGR/6303/12............ 1
 2. Henok Mekuanint ....... UGR/2272/12............ 1
 3. Joshua Tesfaye ........ UGR/0359/12............ 2
