@@ -1,8 +1,8 @@
 # Kebeleye
-Group members Name             Id No              Section
-1. Samuel Girma .......... UGR/6303/12............ 1
-2. Henok Mekuanint ....... UGR/2272/12............ 1
-3. Joshua Tesfaye ........ UGR/0359/12............ 2
+Group Members   	Id No	      Section
+Samuel Girma	    UGR/6303/12   	1
+Henok Mekuanint	   UGR/2272/12  	1
+Joshua Tesfaye  	UGR/0359/12   	2
                                                                                                                                    
 As the title gives some information, this application is meant to connect kebele officials with kebele members. It targets a local problem of kebele bureaucracy. This makes kebele officials work according to their role correctly. On the application both kebele members and kebele officals will have separate accounts. The kebele official will update information daily so that kebele members will be informed and don't waste their time, money, and any other resources because of lack of information. They can also see comming feedback from kebele members and information from kebele head. The kebele members can see updates and can also give feedback for the official. They can also report an official that is not working on his role correctly. They can see the status of their report.
 
