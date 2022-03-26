@@ -1,0 +1,6 @@
+package com.example.kebeleyeapp
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
