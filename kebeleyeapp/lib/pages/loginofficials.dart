@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
-import 'package:kebeleyeapp/pages/loginofficials.dart';
+import 'package:kebeleyeapp/pages/loginpage.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginOfficial extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginOfficial> {
   bool isSignupScreen = true;
   bool isRememberme = false;
   bool isbscure = true;
@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Container(
                 height: 300,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: orange,
                   image: DecorationImage(
                     image: AssetImage("assets/logo16.png"),
                     fit: BoxFit.fill,
@@ -143,8 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                             
                             )
                           ),
-                          onPressed:(){},
-                          child:Text("Log in",
+                          onPressed:(){},child:Text("Log in",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -183,12 +182,12 @@ class _LoginPageState extends State<LoginPage> {
                           Container(
                               child: TextButton(
                               onPressed: () {
-                                 Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) =>LoginOfficial() ),
-                                  );
+                                                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                                    );
                               },
-                              child: const Text("For Administrators and Officials ? Signup/login here",
+                              child: const Text("For Kebele members ? Signup/login here",
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.orange
@@ -219,6 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           
                           ),
+                        
                     ),
                                        ),
                       
