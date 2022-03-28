@@ -96,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                                             : coloringclasss.TEXTCOLOR1)),
                                 if (isSignupScreen)
                                   Container(
-                                    margin: EdgeInsets.only(top: 3),
+                                    margin: EdgeInsets.only(top: 2),
                                     height: 2,
                                     width: 55,
                                     color: Colors.blue,
