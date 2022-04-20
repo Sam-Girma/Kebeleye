@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
+import 'package:kebeleyeapp/pages/officialshomepage.dart';
+
 
 
 class mystate extends StatefulWidget {
@@ -17,7 +19,7 @@ class _mycurrentstate extends State<mystate> {
     super.initState();
     Timer(const Duration(milliseconds: 4000), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+          context, MaterialPageRoute(builder: (context) => MyHomePage()));
     });
   }
 
