@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:kebeleyeapp/pages/officialshomepage.dart';
-
-
+import 'loginofficials.dart';
+import 'officialshomepage.dart';
+import 'membershomepage.dart';
 
 class mystate extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _mycurrentstate extends State<mystate> {
     super.initState();
     Timer(const Duration(milliseconds: 4000), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+          context, MaterialPageRoute(builder: (context) => MembersHomePage()));
     });
   }
 
