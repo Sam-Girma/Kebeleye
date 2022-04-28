@@ -5,6 +5,7 @@ import 'recieved_response.dart';
 import 'sent_feedback_Screen.dart';
 import 'sent_report_screen.dart';
 import 'loginpage.dart';
+import 'officials_model_to_display_on_members_home_page.dart';
 
 class MembersHomePage extends StatefulWidget {
   const MembersHomePage({Key? key}) : super(key: key);
@@ -12,6 +13,8 @@ class MembersHomePage extends StatefulWidget {
   @override
   State<MembersHomePage> createState() => _MembersHomePageState();
 }
+
+List<bool> _showOfficials = [false, false, false, false, false];
 
 class _MembersHomePageState extends State<MembersHomePage> {
   List<String> departments = [
@@ -158,29 +161,19 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
           ),
           Expanded(
+            flex: 4,
             child: SizedBox(
               height: 50,
               child: ListView.builder(
                   itemCount: 5,
                   itemBuilder: (context, position) {
-                    return Container(
-                      height: 60,
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                departments[position],
-                                style: TextStyle(fontSize: 15),
-                              ),
-                              Icon(Icons.arrow_drop_down),
-                            ]),
-                      ),
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _showOfficials[position] = !_showOfficials[position];
+                        });
+                      },
+                      child: departmentElements(position),
                     );
                   }),
             ),
@@ -188,5 +181,77 @@ class _MembersHomePageState extends State<MembersHomePage> {
         ],
       ),
     );
+  }
+
+  Container departmentElements(int position) {
+    return _showOfficials[position]
+        ? Container(
+            child: Column(
+              children: [
+                Container(
+                  height: 60,
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            departments[position],
+                            style: TextStyle(fontSize: 15),
+                          ),
+                          Icon(Icons.arrow_drop_up),
+                        ]),
+                  ),
+                ),
+                SizedBox(
+                  height: 200,
+                  child:
+                ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: officials.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        elevation: 5,
+                        
+
+                        child: Column(
+                          children: [
+                            Padding(padding: EdgeInsets.symmetric(horizontal: 5), child: Image(height: 150,
+                            width: 100,
+                                image: AssetImage(
+                                    officials[index].offcialimageurl)),)
+                            ,
+                            Text(officials[index].officialName),
+                            Text(officials[index].position),
+                          ],
+                        ),
+                      );
+                    })
+                ),],
+            ),
+          )
+        : Container(
+            height: 60,
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(),
+            ),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      departments[position],
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    Icon(Icons.arrow_drop_down),
+                  ]),
+            ),
+          );
   }
 }
