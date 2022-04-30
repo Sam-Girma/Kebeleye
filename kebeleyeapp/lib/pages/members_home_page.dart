@@ -161,7 +161,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 5,
             child: SizedBox(
               height: 50,
               child: ListView.builder(
