@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:kebeleyeapp/pages/model_for_posts.dart';
 
 class PostPage extends StatefulWidget {
@@ -34,6 +35,7 @@ class _PostPageState extends State<PostPage> {
                     width: 30,
                   ),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("Ato Belay Zewde"),
                       Text("Title: Kebele head"),
@@ -79,7 +81,9 @@ class _PostPageState extends State<PostPage> {
                           margin: EdgeInsets.symmetric(horizontal: 10),
                           height: 5 * (posts[position].postcontent.length%71),
                           width: double.infinity,
-                          decoration: BoxDecoration(border: Border.all()
+                          decoration: BoxDecoration(border: Border.all(),
+                          borderRadius: BorderRadius.all(Radius.circular(12),
+                         ),
                           ),
                           child: Text(posts[position].postcontent),
                         ),
