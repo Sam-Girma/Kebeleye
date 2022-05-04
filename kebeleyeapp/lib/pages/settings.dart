@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/mystate.dart';
 
 class setting extends StatefulWidget {
@@ -25,25 +28,51 @@ class settingstate extends State<setting> {
         ),
       ),
       body: ListView(
+        padding: EdgeInsets.all(32),
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 8),
-            child: ListTile(
-              leading: Icon(
-                Icons.person,
-                color: widget.colindex==0?Colors.purple:Colors.white,
-              ),
-              title: Text("Change username",
-                  style: TextStyle(color: widget.colindex==0?Colors.purple:Colors.white)),
-              onTap: () {},
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.lock, color: widget.colindex==0?Colors.purple:Colors.white),
-            title:
-                Text("Change password", style: TextStyle(color: widget.colindex==0?Colors.purple:Colors.white)),
-            onTap: () {},
-          ),
+      const SizedBox(height: 24),
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: TextField(
+          style: TextStyle(color:widget.colindex==0?Colors.black:Colors.white),
+          decoration: InputDecoration(
+              prefixIcon: Icon(Icons.lock),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: coloringclasss.TEXTCOLOR1),
+                  borderRadius: BorderRadius.all(Radius.circular(35.0))),
+              contentPadding: EdgeInsets.all(10),
+              hintText: "enter password",
+              hintStyle: const TextStyle(
+                  fontSize: 14, color: coloringclasss.TEXTCOLOR1)),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 10,right: 10,left: 10,bottom: 20),
+        child: TextField(
+          style: TextStyle(color:widget.colindex==0?Colors.black:Colors.white),
+
+          decoration: InputDecoration(
+              prefixIcon: Icon(Icons.lock),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: coloringclasss.TEXTCOLOR1),
+                  borderRadius: BorderRadius.all(Radius.circular(35.0))),
+              contentPadding: EdgeInsets.all(10),
+              hintText: "enter  new password",
+              hintStyle: const TextStyle(
+                  fontSize: 14, color: coloringclasss.TEXTCOLOR1)),
+        ),
+      ),
+      RaisedButton(
+  child: Text(
+          "Change Password",
+          style: TextStyle(fontSize: 24),
+        ),
+        shape: StadiumBorder(),
+        color:widget.colindex==0?Colors.purple:Colors.blue ,
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        textColor: Colors.white,
+  onPressed: (){}
+  )
         ],
       ),
     );
