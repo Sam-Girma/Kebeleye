@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
+import 'package:kebeleyeapp/pages/model_for_posts.dart';
 import 'package:kebeleyeapp/pages/officialshomepage.dart';
 import 'package:kebeleyeapp/pages/tosee_tosend_toreportpage.dart';
 import 'loginofficials.dart';
@@ -21,7 +22,7 @@ class _mycurrentstate extends State<mystate> {
     super.initState();
     Timer(const Duration(milliseconds: 4000), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => MembersHomePage()));
+          context, MaterialPageRoute(builder: (context) => PostPage()));
     });
   }
 
