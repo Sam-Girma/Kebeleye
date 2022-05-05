@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
+import 'package:kebeleyeapp/pages/tosee_tosend_toreportpage.dart';
 import 'members_edit_account_page.dart';
 import 'recieved_response.dart';
 import 'sent_feedback_Screen.dart';
@@ -152,6 +153,11 @@ class _MembersHomePageState extends State<MembersHomePage> {
               child: TextField(
                 autocorrect: false,
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20),
+                    ),
+                  ),
                   suffixIcon:
                       IconButton(onPressed: () {}, icon: Icon(Icons.search)),
                   hintText: "Search for officials.",
@@ -161,7 +167,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
           ),
           Expanded(
-            flex: 5,
+            flex: 6,
             child: SizedBox(
               height: 50,
               child: ListView.builder(
@@ -208,30 +214,47 @@ class _MembersHomePageState extends State<MembersHomePage> {
                   ),
                 ),
                 SizedBox(
-                  height: 200,
-                  child:
-                ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: officials.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        elevation: 5,
-                        
-
-                        child: Column(
-                          children: [
-                            Padding(padding: EdgeInsets.symmetric(horizontal: 5), child: Image(height: 150,
-                            width: 100,
-                                image: AssetImage(
-                                    officials[index].offcialimageurl)),)
-                            ,
-                            Text(officials[index].officialName),
-                            Text(officials[index].position),
-                          ],
-                        ),
-                      );
-                    })
-                ),],
+                    height: 250,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: officials.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(
+                                  builder: (BuildContext context) {
+                                return PostPage(
+                                    imageurl: officials[index].offcialimageurl,
+                                    name: officials[index].officialName,
+                                    position: officials[index].position);
+                              }));
+                            },
+                            child: Card(
+                              elevation: 5,
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding:
+                                        EdgeInsets.symmetric(horizontal: 5),
+                                    child: Image(
+                                        height: 150,
+                                        width: 100,
+                                        image: AssetImage(
+                                            officials[index].offcialimageurl)),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(10),
+                                    child: Text(officials[index].officialName),
+                                  ),
+                                  Container(
+                                      padding: EdgeInsets.all(5),
+                                      child: Text(officials[index].position)),
+                                ],
+                              ),
+                            ),
+                          );
+                        })),
+              ],
             ),
           )
         : Container(

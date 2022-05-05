@@ -4,7 +4,10 @@ import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/model_for_posts.dart';
 
 class PostPage extends StatefulWidget {
-  const PostPage({Key? key}) : super(key: key);
+  final String name;
+  final String position;
+  final String imageurl;
+  const PostPage({Key? key, required this.name, required this.position, required this.imageurl}) : super(key: key);
 
   @override
   State<PostPage> createState() => _PostPageState();
@@ -17,6 +20,7 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: Text("Kebeleye"),
       ),
       body: Column(
@@ -31,7 +35,7 @@ class _PostPageState extends State<PostPage> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage("assets/profile_picture.png"),
+                    backgroundImage: AssetImage("${widget.imageurl}"),
                   ),
                   SizedBox(
                     width: 30,
@@ -39,8 +43,8 @@ class _PostPageState extends State<PostPage> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Ato Belay Zewde"),
-                      Text("Title: Kebele head"),
+                      Text("${widget.name}"),
+                      Text("${widget.position}"),
                     ],
                   ),
                 ],
@@ -75,13 +79,15 @@ class _PostPageState extends State<PostPage> {
                 itemCount: posts.length,
                 itemBuilder: (context, position) {
                   return Container(
-                    margin: EdgeInsets.all(10),
+                    //color: Color.fromARGB(221, 116, 12, 12),
+                    margin: EdgeInsets.symmetric(horizontal:10),
                     child: Column(
+                      
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           padding: EdgeInsets.all(20),
-                          margin: EdgeInsets.all(20),
+                          
                           height: 5 * (posts[position].postcontent.length % 71),
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -93,7 +99,7 @@ class _PostPageState extends State<PostPage> {
                           child: Text(posts[position].postcontent),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(30),
+                          padding: EdgeInsets.all(20),
                           child: Text(posts[position].datetime),
                         )
                       ],
@@ -117,6 +123,7 @@ class _PostPageState extends State<PostPage> {
                           autocorrect: false,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
+                            
                             hintText: "Send me feedbacks.",
                             hintStyle:
                                 TextStyle(fontSize: 14, color: Colors.grey),
@@ -152,7 +159,7 @@ class _PostPageState extends State<PostPage> {
                   children: [
                     Container(
                         child: Column(children: [
-                      Text("Select issues that apply"),
+                      Text("Select issues that apply", style: TextStyle(fontSize: 15),),
                       Row(
                         children: [
                           Expanded(
@@ -163,10 +170,11 @@ class _PostPageState extends State<PostPage> {
                               onChanged: (bool) {
                                 setState(
                                   () {
-                                    checkval[0] != checkval[0];
+                                    checkval[0] = !checkval[0];
                                   },
                                 );
                               },
+                              
                             ),
                           ),
                           Expanded(
@@ -177,7 +185,7 @@ class _PostPageState extends State<PostPage> {
                               onChanged: (bool) {
                                 setState(
                                   () {
-                                    checkval[0] != checkval[0];
+                                    checkval[1] =! checkval[1];
                                   },
                                 );
                               },
@@ -194,7 +202,7 @@ class _PostPageState extends State<PostPage> {
                             onChanged: (bool) {
                               setState(
                                 () {
-                                  checkval[0] != checkval[0];
+                                  checkval[2] =! checkval[2];
                                 },
                               );
                             },
@@ -208,7 +216,7 @@ class _PostPageState extends State<PostPage> {
                             onChanged: (bool) {
                               setState(
                                 () {
-                                  checkval[0] != checkval[0];
+                                  checkval[3] =! checkval[3];
                                 },
                               );
                             },
@@ -226,7 +234,7 @@ class _PostPageState extends State<PostPage> {
                               onChanged: (bool) {
                                 setState(
                                   () {
-                                    checkval[0] != checkval[0];
+                                    checkval[4] =! checkval[4];
                                   },
                                 );
                               },
@@ -237,6 +245,7 @@ class _PostPageState extends State<PostPage> {
                     ])),
                     Column(
                   children: [
+                    Text("Add Description", style: TextStyle(fontSize: 15),),
                     Padding(
                       padding: EdgeInsets.fromLTRB(10, 20, 20, 10),
                       child: Container(
@@ -249,7 +258,7 @@ class _PostPageState extends State<PostPage> {
                           autocorrect: false,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            hintText: "Send me feedbacks.",
+                            hintText: "Add Your description here. we will contact for valid reason soon.",
                             hintStyle:
                                 TextStyle(fontSize: 14, color: Colors.grey),
                           ),
