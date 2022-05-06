@@ -218,6 +218,7 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
       child: TextField(
+        
         obscureText: ispassword ? isbscure : false,
         keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
         decoration: InputDecoration(
