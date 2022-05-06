@@ -61,7 +61,7 @@ class _PostPageState extends State<PostPage> {
               index = value;
             });
           },
-          selectedItemColor: Colors.blue,
+          selectedItemColor: Theme.of(context).appBarTheme.color,
           items: [
             BottomNavigationBarItem(
                 icon: Icon(Icons.new_releases), label: "Posts"),
@@ -135,9 +135,10 @@ class _PostPageState extends State<PostPage> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         ElevatedButton(
+                        
                           onPressed: () {},
                           child: Text("Clear"),
-                          style: ButtonStyle(),
+                          
                         ),
                         SizedBox(
                           width: 30,

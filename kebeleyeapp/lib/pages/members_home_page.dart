@@ -28,6 +28,8 @@ class _MembersHomePageState extends State<MembersHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
+
       appBar: AppBar(
         title: Text("Kebeleye"),
       ),
@@ -36,7 +38,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
           children: <Widget>[
             Container(
               height: 300,
-              color: Colors.blue,
+              color: Theme.of(context).appBarTheme.color,
               padding: EdgeInsets.all(10),
               child: Column(
                 children: [
