@@ -55,7 +55,7 @@ class settingstate extends State<setting> {
               prefixIcon: Icon(Icons.lock),
               enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: coloringclasss.TEXTCOLOR1),
-                  borderRadius: BorderRadius.all(Radius.circular(35.0))),
+                  borderRadius: BorderRadius.all(Radius.circular(35.0))), 
               contentPadding: EdgeInsets.all(10),
               hintText: "enter  new password",
               hintStyle: const TextStyle(
