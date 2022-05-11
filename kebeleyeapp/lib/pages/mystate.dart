@@ -20,7 +20,7 @@ class _mycurrentstate extends State<mystate> {
     super.initState();
     Timer(const Duration(milliseconds: 4000), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => OfficialsHomePage()));
+          context, MaterialPageRoute(builder: (context) => MembersHomePage()));
     });
   }
 
