@@ -10,8 +10,12 @@ class SentFeedbackScreen extends StatefulWidget {
 class _SentFeedbackScreenState extends State<SentFeedbackScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Sent feedbacks"),
+      ),
+      body: Container()//ListView.builder(itemBuilder: 10), to be connected to the database
+      
     );
   }
 }

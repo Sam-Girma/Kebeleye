@@ -9,7 +9,11 @@ class SentReportScreen extends StatefulWidget {
 class _SentReportScreenState extends State<SentReportScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Sent Reports"),
+      ),
+      body: Container()//ListView.builder(itemBuilder: 10), to be connected to the database
       
     );
   }

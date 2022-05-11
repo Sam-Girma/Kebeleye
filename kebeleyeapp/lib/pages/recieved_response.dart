@@ -9,7 +9,11 @@ class ResponseScreen extends StatefulWidget {
 class _ResponseScreenState extends State<ResponseScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Response"),
+      ),
+      body: Container()//ListView.builder(itemBuilder: 10), to be connected to the database
       
     );
   }
