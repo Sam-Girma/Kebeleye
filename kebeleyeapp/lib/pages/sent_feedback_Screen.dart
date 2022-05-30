@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 class SentFeedbackScreen extends StatefulWidget {
-  const SentFeedbackScreen({ Key? key }) : super(key: key);
+  const SentFeedbackScreen({Key? key}) : super(key: key);
 
   @override
   State<SentFeedbackScreen> createState() => _SentFeedbackScreenState();

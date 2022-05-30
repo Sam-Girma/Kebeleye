@@ -12,4 +12,7 @@ class coloringclasss {
   static const facebookcolor = Color(0xFF385999);
   static const googlecolor = Color(0xFFDE4839);
   static const backgroundcolor = Color(0xFFECF3F9);
+  static const col1 = Color(0xFF9C27B0);
+    static const col2 = Colors.black54;
+
 }
