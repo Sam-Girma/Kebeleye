@@ -77,22 +77,20 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/setting',
-        builder: (BuildContext context, GoRouterState state) =>
-            setting(colindex: 1,),
+        builder: (BuildContext context, GoRouterState state) => setting(
+          colindex: 1,
+        ),
       ),
       GoRoute(
         path: '/accoountstobeverified',
         builder: (BuildContext context, GoRouterState state) =>
-             AccountsToBeVerified(),
+            AccountsToBeVerified(),
       ),
-
       GoRoute(
         path: '/verifiedaccount',
         builder: (BuildContext context, GoRouterState state) =>
-             VerifiedAccounts(),
-
+            VerifiedAccounts(),
       ),
-
     ],
   );
 }
