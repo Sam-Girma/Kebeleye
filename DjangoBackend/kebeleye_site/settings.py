@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-8u+4yrx43(&e#(3$^r_$o9n45(mx!(77vx92n(=xu%r_a4ipdq'
+SECRET_KEY = 'django-insecure-ump30z3-1a^r$e)aptwan2fx%#-+imq!0slvasc4_9*4#3vb!('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,15 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'officialsheads.apps.OfficialsHeadsConfig',
-    'announcements.apps.Announcements.config',
+    'accounts.apps.AccountsConfig',
+    'officialheads.apps.OfficialheadsConfig',
+    'announcements.apps.AnnouncementsConfig',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +87,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -128,3 +127,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AUTH_USER_MODEL = "authentication.Account"
