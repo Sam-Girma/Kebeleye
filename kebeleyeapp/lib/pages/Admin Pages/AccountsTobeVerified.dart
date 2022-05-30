@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'VerifiedAccounts.dart';
+import 'package:go_router/go_router.dart';
 
 class AccountsToBeVerified extends StatefulWidget {
   const AccountsToBeVerified({Key? key}) : super(key: key);
@@ -40,11 +41,7 @@ class _AccountsToBeVerifiedState extends State<AccountsToBeVerified> {
                 child: TextButton(
                     style: TextButton.styleFrom(primary: Colors.blue),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const AccountsToBeVerified()));
+                      context.go('/accoountstobeverified');
                     },
                     child: const Text(
                       'Accounts to be verified',
@@ -58,10 +55,7 @@ class _AccountsToBeVerifiedState extends State<AccountsToBeVerified> {
                 child: TextButton(
                     style: TextButton.styleFrom(primary: Colors.blue),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const VerifiedAccounts()));
+                      context.go('/verifiedaccount');
                     },
                     child: const Text(
                       'Verified accounts',

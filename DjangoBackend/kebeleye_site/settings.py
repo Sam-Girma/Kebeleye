@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -76,12 +77,12 @@ WSGI_APPLICATION = 'kebeleye_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kebeleyedbtest',
-        'USER': 'postgres',
-        'PASSWORD': 'kebeleye123',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+      'ENGINE':'django.db.backends.postgresql_psycopg2',
+      'NAME':'signup',
+      'USER':'postgres',
+      'PASSWORD':'227212',
+      'HOST':'localhost',
+      'PORT':'5432',
     }
 }
 

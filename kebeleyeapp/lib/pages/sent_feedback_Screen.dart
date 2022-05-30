@@ -14,7 +14,7 @@ class _SentFeedbackScreenState extends State<SentFeedbackScreen> {
       appBar: AppBar(
         title: Text("Sent feedbacks"),
       ),
-      body: Container()//ListView.builder(itemBuilder: 10), to be connected to the database
+      body: Container()
       
     );
   }

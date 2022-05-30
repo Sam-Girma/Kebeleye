@@ -6,6 +6,7 @@ import 'sent_feedback_Screen.dart';
 import 'sent_report_screen.dart';
 import 'loginpage.dart';
 import 'officials_model_to_display_on_members_home_page.dart';
+import 'package:go_router/go_router.dart';
 
 class MembersHomePage extends StatefulWidget {
   const MembersHomePage({Key? key}) : super(key: key);
@@ -63,14 +64,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return MembersEditAccountScreen();
-                    },
-                  ),
-                );
+                context.go('/responsescreen');
               },
               child: ListTile(
                 leading: Icon(Icons.account_circle),
@@ -79,14 +73,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return ResponseScreen();
-                    },
-                  ),
-                );
+                context.go("/responsescreen");
               },
               child: ListTile(
                 leading: Icon(Icons.message),
@@ -95,14 +82,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return SentFeedbackScreen();
-                    },
-                  ),
-                );
+                context.go('/sentfeedbackscreen');
               },
               child: ListTile(
                 leading: Icon(Icons.message),
@@ -111,14 +91,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return SentReportScreen();
-                    },
-                  ),
-                );
+                context.go('/sentresponsescreen');
               },
               child: ListTile(
                 leading: Icon(Icons.message),
@@ -127,14 +100,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return LoginPage();
-                    },
-                  ),
-                );
+                context.go("/loginpage");
               },
               child: ListTile(
                 leading: Icon(Icons.logout),
@@ -208,30 +174,30 @@ class _MembersHomePageState extends State<MembersHomePage> {
                   ),
                 ),
                 SizedBox(
-                  height: 200,
-                  child:
-                ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: officials.length,
-                    itemBuilder: (context, index) {
-                      return Card(
-                        elevation: 5,
-                        
-
-                        child: Column(
-                          children: [
-                            Padding(padding: EdgeInsets.symmetric(horizontal: 5), child: Image(height: 150,
-                            width: 100,
-                                image: AssetImage(
-                                    officials[index].offcialimageurl)),)
-                            ,
-                            Text(officials[index].officialName),
-                            Text(officials[index].position),
-                          ],
-                        ),
-                      );
-                    })
-                ),],
+                    height: 200,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: officials.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            elevation: 5,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 5),
+                                  child: Image(
+                                      height: 150,
+                                      width: 100,
+                                      image: AssetImage(
+                                          officials[index].offcialimageurl)),
+                                ),
+                                Text(officials[index].officialName),
+                                Text(officials[index].position),
+                              ],
+                            ),
+                          );
+                        })),
+              ],
             ),
           )
         : Container(

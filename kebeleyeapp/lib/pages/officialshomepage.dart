@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
@@ -11,54 +10,52 @@ class OfficialsHomePage extends StatefulWidget {
 
 class _OfficialsHomePageState extends State<OfficialsHomePage> {
   List colors = [Colors.purple, Colors.grey.shade900];
-  final _userfeedback = ["feedback1", "feedback2","feedback3","feedback4","feedback5","feedback6"];
+  final _userfeedback = [
+    "feedback1",
+    "feedback2",
+    "feedback3",
+    "feedback4",
+    "feedback5",
+    "feedback6"
+  ];
   int colindex = 0;
   int navindex = 0;
   @override
   Widget build(BuildContext context) {
     final pages = [
       ListView.builder(
-          
-          itemCount: _userfeedback.length,
-          itemBuilder: (context, index) {
-            return Flexible(
-              child: (Container(
-                height: 400,
-                margin: EdgeInsets.all(20),// add margin 
+        itemCount: _userfeedback.length,
+        itemBuilder: (context, index) {
+          return Flexible(
+            child: (Container(
+              height: 400,
+              margin: EdgeInsets.all(20), // add margin
               padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: const BorderRadius.all(Radius.circular(20))
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: const BorderRadius.all(Radius.circular(20))),
+            )),
+          );
+        },
+      ),
 
-            ),                
-              )
-              ),
-            );
-          },
-          ),
-          
-          
-           //above1
+      //above1
       ListView.builder(
-          
-          itemCount: _userfeedback.length,
-          itemBuilder: (context, index) {
-            return Flexible(
-              child: (Container(
-                height: 400,
-                margin: EdgeInsets.all(20),// add margin 
+        itemCount: _userfeedback.length,
+        itemBuilder: (context, index) {
+          return Flexible(
+            child: (Container(
+              height: 400,
+              margin: EdgeInsets.all(20), // add margin
               padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Colors.blue,
-                borderRadius: const BorderRadius.all(Radius.circular(20))
-
-            ),                
-              )
-              ),
-            );
-          },
-          ),
-           //above2
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: const BorderRadius.all(Radius.circular(20))),
+            )),
+          );
+        },
+      ),
+      //above2
 
       ListView(
         children: [
@@ -71,7 +68,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                 child: Text(
               "Announce",
               style: TextStyle(
-                  color: colindex == 0 ? Colors.black : Colors.blue,
+                  color: Colors.black,
                   fontSize: 40),
             )),
           ),
@@ -84,7 +81,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                     padding: EdgeInsets.only(left: 30),
                     child: TextFormField(
                       style: TextStyle(
-                          color: colindex == 0 ? Colors.black : Colors.white),
+                          color: Colors.black ),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
@@ -95,8 +92,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                           hintText: "day",
                           label: Text("day"),
                           labelStyle: TextStyle(
-                              color:
-                                  colindex == 0 ? Colors.black : Colors.blue),
+                              color: Colors.black),
                           hintStyle: TextStyle(
                               color:
                                   colindex == 0 ? Colors.black : Colors.blue)),
@@ -108,7 +104,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                     padding: EdgeInsets.only(right: 10, left: 10),
                     child: TextFormField(
                       style: TextStyle(
-                          color: colindex == 0 ? Colors.black : Colors.white),
+                          color: Colors.black ),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -118,10 +114,10 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                                 BorderRadius.all(Radius.circular(35.0))),
                         hintText: "month",
                         hintStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color: Colors.black),
                         label: Text("month"),
                         labelStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color: Colors.black ),
                       ),
                     ),
                   ),
@@ -141,10 +137,10 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                                 BorderRadius.all(Radius.circular(35.0))),
                         hintText: "year",
                         hintStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color: Colors.black ),
                         label: Text("year"),
                         labelStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color: Colors.black),
                       ),
                     ),
                   ),
@@ -161,7 +157,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                     padding: EdgeInsets.only(left: 30, right: 70),
                     child: TextFormField(
                       style: TextStyle(
-                          color: colindex == 0 ? Colors.black : Colors.white),
+                          color: Colors.black ),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
@@ -171,10 +167,10 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                                 BorderRadius.all(Radius.circular(35.0))),
                         hintText: "from time",
                         hintStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color: Colors.black ),
                         label: Text("from time"),
                         labelStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color: Colors.black),
                       ),
                     ),
                   ),
@@ -194,10 +190,10 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                                 BorderRadius.all(Radius.circular(35.0))),
                         hintText: "to time",
                         hintStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color:  Colors.black ),
                         label: Text("to time"),
                         labelStyle: TextStyle(
-                            color: colindex == 0 ? Colors.black : Colors.blue),
+                            color: Colors.black ),
                       ),
                     ),
                   ),
@@ -210,7 +206,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
             child: Text(
               "post",
               style:
-                  TextStyle(color: colindex == 0 ? Colors.black : Colors.blue),
+                  TextStyle(color: Colors.black ),
             ),
           ),
           Flexible(
@@ -218,7 +214,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
             padding: EdgeInsets.all(30),
             child: TextField(
               style:
-                  TextStyle(color: colindex == 0 ? Colors.black : Colors.white),
+                  TextStyle(color: Colors.black ),
               maxLines: 10,
               decoration: new InputDecoration(
                 focusedBorder: OutlineInputBorder(
@@ -229,7 +225,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                     borderRadius: BorderRadius.all(Radius.circular(35.0))),
                 hintText: 'POST',
                 hintStyle: TextStyle(
-                    color: colindex == 0 ? Colors.black : Colors.blue),
+                    color:  Colors.black),
               ),
             ),
           )),
@@ -243,14 +239,14 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                   ),
                 ),
                 shape: StadiumBorder(),
-                color: colindex == 0 ? Colors.purple : Colors.blue,
+                color:  Colors.purple,
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 textColor: Colors.white,
                 onPressed: () {}),
           )
         ],
       ),
-      //above3
+      
 
       ListView(
         children: [
@@ -299,14 +295,14 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
             child: Text(
               "Henok Mekuanint",
               style: TextStyle(
-                  color: colindex == 0 ? Colors.purple : Colors.white,
+                  color: Colors.purple,
                   fontSize: 30),
             ),
           ),
           Center(
             child: Text("Kebele Manager",
                 style: TextStyle(
-                  color: colindex == 0 ? Colors.purple : Colors.white,
+                  color: Colors.purple,
                   fontSize: 20,
                 )),
           ),
@@ -315,21 +311,21 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
             child: ListTile(
               leading: Icon(
                 Icons.person,
-                color: colindex == 0 ? Colors.purple : Colors.white,
+                color:  Colors.purple ,
               ),
               title: Text("Kebele ID",
                   style: TextStyle(
-                      color: colindex == 0 ? Colors.purple : Colors.white)),
+                      color:  Colors.purple)),
               onTap: () {},
             ),
           ),
           ListTile(
             leading: Icon(Icons.settings,
-                color: colindex == 0 ? Colors.purple : Colors.white),
+                color:  Colors.purple ),
             title: Text(
               "edit account",
               style: TextStyle(
-                  color: colindex == 0 ? Colors.purple : Colors.white),
+                  color: Colors.purple),
             ),
             onTap: () {
               Navigator.push(
@@ -341,31 +337,31 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
               );
             },
           ),
-          ListTile(
-            leading: Icon(Icons.sunny,
-                color: colindex == 0 ? Colors.purple : Colors.white),
-            title: Text(
-              "dark mode",
-              style: TextStyle(
-                  color: colindex == 0 ? Colors.purple : Colors.white),
-            ),
-            onTap: () {
-              setState(() {
-                if (colindex == 1) {
-                  colindex = 0;
-                } else {
-                  colindex = 1;
-                }
-              });
-            },
-          ),
+          // ListTile(
+          //   leading: Icon(Icons.sunny,
+          //       color: colindex == 0 ? Colors.purple : Colors.white),
+          //   title: Text(
+          //     "dark mode",
+          //     style: TextStyle(
+          //         color: colindex == 0 ? Colors.purple : Colors.white),
+          //   ),
+          //   onTap: () {
+          //     setState(() {
+          //       if (colindex == 1) {
+          //         colindex = 0;
+          //       } else {
+          //         colindex = 1;
+          //       }
+          //     });
+          //   },
+          // ),
           ListTile(
             leading: Icon(Icons.logout,
-                color: colindex == 0 ? Colors.purple : Colors.white),
+                color: Colors.purple),
             title: Text(
               "Logout",
               style: TextStyle(
-                  color: colindex == 0 ? Colors.purple : Colors.white),
+                  color: Colors.purple ),
             ),
             onTap: () {},
           ),
@@ -373,12 +369,12 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
       ),
     ];
     return Scaffold(
-      backgroundColor: colindex == 0 ? Colors.white : Colors.black12,
+      backgroundColor: Colors.white,
       body: pages[navindex],
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: colindex == 0 ? Colors.white : Colors.grey.shade800,
-        selectedItemColor: colindex == 0 ? Colors.purple : Colors.blue,
-        unselectedItemColor: colindex == 0 ? Colors.black : Colors.white,
+        backgroundColor: Colors.white ,
+        selectedItemColor: Colors.purple,
+        unselectedItemColor: Colors.black,
         iconSize: 30,
         type: BottomNavigationBarType.fixed,
         currentIndex: navindex,
