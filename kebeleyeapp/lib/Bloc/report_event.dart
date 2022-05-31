@@ -1,18 +1,17 @@
 import 'package:equatable/equatable.dart';
 
-abstract class HomePageEvent extends Equatable{}
+abstract class ReportEvent extends Equatable{
 
-class ExpandEvent extends HomePageEvent{
-  ExpandEvent();
-
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
 }
-class CompressEvent extends HomePageEvent{
-  CompressEvent();
-
+class ClearEvent extends ReportEvent{
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
+  
+}
+class SendReportEvent extends ReportEvent{
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+
 }
