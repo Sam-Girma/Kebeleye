@@ -3,13 +3,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import PermissionsMixin, BaseUserManager, AbstractBaseUser
 from django.contrib.auth.validators import UnicodeUsernameValidator
-from DjangoBackend.tracker.models import TrackingModel
+# from DjangoBackend.tracker.models import TrackingModel
 
 
 # Create your models here.
 
 
-class Account(AbstractBaseUser, PermissionsMixin, TrackingModel):
+class Account(AbstractBaseUser, PermissionsMixin):
     """
    An abstract base class implementing a fully featured User model with
    admin-compliant permissions.
@@ -30,9 +30,9 @@ class Account(AbstractBaseUser, PermissionsMixin, TrackingModel):
             "unique": ("A user with that username already exists."),
         },
     )
-    first_name = models.CharField(_("first name"), max_length=150, blank=True)
-    last_name = models.CharField(_("last name"), max_length=150, blank=True)
-    email = models.EmailField(_("email address"), blank=True)
+    first_name = models.CharField(("first name"), max_length=150, blank=True)
+    last_name = models.CharField(("last name"), max_length=150, blank=True)
+    email = models.EmailField(("email address"), blank=True)
     is_staff = models.BooleanField(
         ("staff status"),
         default=False,
@@ -47,9 +47,9 @@ class Account(AbstractBaseUser, PermissionsMixin, TrackingModel):
             "Unselect this instead of deleting accounts."
         ),
     )
-    date_joined = models.DateTimeField(("date joined"), default=timezone.now)
+    date_joined = models.DateTimeField(("date joined"), default=timezone)
 
-    objects = UserManager()
+    # objects = UserManager()
 
     EMAIL_FIELD = "email"
     USERNAME_FIELD = "username"

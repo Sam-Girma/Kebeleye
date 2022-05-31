@@ -17,6 +17,7 @@ import 'package:go_router/go_router.dart';
 void main() {
   setPathUrlStrategy();
   runApp(MyApp());
+  
 }
 
 class MyApp extends StatelessWidget {
