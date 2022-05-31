@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ump30z3-1a^r$e)aptwan2fx%#-+imq!0slvasc4_9*4#3vb!('
+SECRET_KEY = 'django-insecure-2&iz+825b@+_)#w3%8ug!alz=#ig76(_guy(gdlm7^_(3)gmif'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    'officialheads.apps.OfficialheadsConfig',
-    'announcements.apps.AnnouncementsConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -79,13 +78,14 @@ WSGI_APPLICATION = 'kebeleye_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kebeleyedbtest',
+        'NAME': 'KebeleSite',
         'USER': 'postgres',
-        'PASSWORD': 'kebeleye123',
+        'PASSWORD': 'eyAsuc@su1',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -128,4 +128,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = "authentication.Account"
+AUTH_USER_MODEL = "accounts.Account"
