@@ -11,6 +11,12 @@ class Official extends Equatable{
   
   @override
 List<Object> get props => [officialName,  position, offcialimageurl];
+
+  factory Official.fromJson(Map<String, dynamic> json){
+    return Official(officialName: json['username'], position: json['position'], offcialimageurl: json['image']);
+  }
+
+  
 }
 
 

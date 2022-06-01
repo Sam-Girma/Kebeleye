@@ -6,7 +6,10 @@ abstract class HomePageState extends Equatable {
   List<Object> get props => [];
 }
 
-class CompressedState extends HomePageState {}
+class CompressedState extends HomePageState {
+  //final String department;
+  CompressedState();
+}
 
 class ExpandLoading extends HomePageState {}
 
@@ -15,4 +18,6 @@ class ExpandedState extends HomePageState {
   ExpandedState([this.officials = const []]);
 }
 
-class Expandedfailed extends HomePageState {}
+class Expandedfailed extends HomePageState {
+  Expandedfailed(Object error);
+}
