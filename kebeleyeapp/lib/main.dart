@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Login design',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(color: Color.fromARGB(255, 96, 95, 235)),
+        
+        
         primarySwatch: Colors.blue,
       ),
     );

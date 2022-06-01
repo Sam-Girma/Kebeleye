@@ -6,7 +6,11 @@ class Official{
 }
 
 final List<Official> officials=[
-  Official("Abebe", "General", "assets/profile_picture.png"),
-  Official("Belete", "manager", "assets/profile_picture.png"),
-  Official("Hirut", "consultant", "assets/profile_picture.png")
+  Official("Ato Abebe Kebede", "Kebele head", "assets/profile_picture.png"),
+  Official("Ato Belete Sisay", "Kebele vice", "assets/profile_picture.png"),
+  Official("Wezero Hirut Gemeda", "Kebele consultant", "assets/profile_picture.png"),
+  Official("Ato Shambel Kebede", "Kebele head", "assets/profile_picture.png"),
+  Official("Ato Saka Sisay", "Kebele vice", "assets/profile_picture.png"),
+  Official("Wezero Drogba Gemeda", "Kebele consultant", "assets/profile_picture.png"),
+
 ];

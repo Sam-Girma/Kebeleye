@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/model_for_posts.dart';
 
 class PostPage extends StatefulWidget {
-  const PostPage({Key? key}) : super(key: key);
+  final String name;
+  final String position;
+  final String imageurl;
+  const PostPage({Key? key, required this.name, required this.position, required this.imageurl}) : super(key: key);
 
   @override
   State<PostPage> createState() => _PostPageState();
@@ -11,10 +15,12 @@ class PostPage extends StatefulWidget {
 
 class _PostPageState extends State<PostPage> {
   int index = 0;
+  List<bool> checkval = [false, false, false, false, false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: Text("Kebeleye"),
       ),
       body: Column(
@@ -29,7 +35,7 @@ class _PostPageState extends State<PostPage> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage("assets/profile_picture.png"),
+                    backgroundImage: AssetImage("${widget.imageurl}"),
                   ),
                   SizedBox(
                     width: 30,
@@ -37,8 +43,8 @@ class _PostPageState extends State<PostPage> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Ato Belay Zewde"),
-                      Text("Title: Kebele head"),
+                      Text("${widget.name}"),
+                      Text("${widget.position}"),
                     ],
                   ),
                 ],
@@ -55,7 +61,7 @@ class _PostPageState extends State<PostPage> {
               index = value;
             });
           },
-          selectedItemColor: Colors.blue,
+          selectedItemColor: Theme.of(context).appBarTheme.color,
           items: [
             BottomNavigationBarItem(
                 icon: Icon(Icons.new_releases), label: "Posts"),
@@ -73,22 +79,29 @@ class _PostPageState extends State<PostPage> {
                 itemCount: posts.length,
                 itemBuilder: (context, position) {
                   return Container(
+                    //color: Color.fromARGB(221, 116, 12, 12),
+                    margin: EdgeInsets.symmetric(horizontal:10),
                     child: Column(
                       
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
                           padding: EdgeInsets.all(20),
-                          margin: EdgeInsets.symmetric(horizontal: 10),
-                          height: 5 * (posts[position].postcontent.length%71),
+                          
+                          height: 5 * (posts[position].postcontent.length % 71),
                           width: double.infinity,
-                          decoration: BoxDecoration(border: Border.all(),
-                          borderRadius: BorderRadius.all(Radius.circular(12),
-                         ),
+                          decoration: BoxDecoration(
+                            border: Border.all(),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(12),
+                            ),
                           ),
                           child: Text(posts[position].postcontent),
                         ),
-                        Text(posts[position].datetime),
-                        SizedBox(height: 30,)
+                        Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Text(posts[position].datetime),
+                        )
                       ],
                     ),
                   );
@@ -96,20 +109,187 @@ class _PostPageState extends State<PostPage> {
           )
         : index == 1
             ? Container(
-              child: Column(
-                children: [
-                  TextField(),
-                  Text("If you have any admire write here"),
-                  TextField(),
-                ],
-              ),
-
-            )
-            : Container(child: Column(
-              children: [
-                Container(),
-                TextField(),
-              ],
-            ),);
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10, 20, 20, 10),
+                      child: Container(
+                        height: 300,
+                        width: double.infinity,
+                        child: TextField(
+                          textAlign: TextAlign.start,
+                          expands: true,
+                          maxLines: null,
+                          autocorrect: false,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            
+                            hintText: "Send me feedbacks.",
+                            hintStyle:
+                                TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                        
+                          onPressed: () {},
+                          child: Text("Clear"),
+                          
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text("Send Feedback"),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              )
+            : Container(
+                child: Column(
+                  children: [
+                    Container(
+                        child: Column(children: [
+                      Text("Select issues that apply", style: TextStyle(fontSize: 15),),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CheckboxListTile(
+                              controlAffinity: ListTileControlAffinity.leading,
+                              title: Text("Not on time."),
+                              value: checkval[0],
+                              onChanged: (bool) {
+                                setState(
+                                  () {
+                                    checkval[0] = !checkval[0];
+                                  },
+                                );
+                              },
+                              
+                            ),
+                          ),
+                          Expanded(
+                            child: CheckboxListTile(
+                              controlAffinity: ListTileControlAffinity.leading,
+                              title: Text("Was very arrogant"),
+                              value: checkval[1],
+                              onChanged: (bool) {
+                                setState(
+                                  () {
+                                    checkval[1] =! checkval[1];
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(children: [
+                        Expanded(
+                          child: CheckboxListTile(
+                            controlAffinity: ListTileControlAffinity.leading,
+                            title: Text("Corruption"),
+                            value: checkval[2],
+                            onChanged: (bool) {
+                              setState(
+                                () {
+                                  checkval[2] =! checkval[2];
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                        Expanded(
+                          child: CheckboxListTile(
+                            controlAffinity: ListTileControlAffinity.leading,
+                            title: Text("Sexual harasement"),
+                            value: checkval[3],
+                            onChanged: (bool) {
+                              setState(
+                                () {
+                                  checkval[3] =! checkval[3];
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ]),
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 4,
+                            child: CheckboxListTile(
+                              controlAffinity: ListTileControlAffinity.leading,
+                              title: Text("Other"),
+                              value: checkval[4],
+                              onChanged: (bool) {
+                                setState(
+                                  () {
+                                    checkval[4] =! checkval[4];
+                                  },
+                                );
+                              },
+                            ),
+                          )
+                        ],
+                      )
+                    ])),
+                    Column(
+                  children: [
+                    Text("Add Description", style: TextStyle(fontSize: 15),),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10, 20, 20, 10),
+                      child: Container(
+                        height: 250,
+                        width: double.infinity,
+                        child: TextField(
+                          textAlign: TextAlign.start,
+                          expands: true,
+                          maxLines: null,
+                          autocorrect: false,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "Add Your description here. we will contact for valid reason soon.",
+                            hintStyle:
+                                TextStyle(fontSize: 14, color: Colors.grey),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text("Clear"),
+                          style: ButtonStyle(),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {},
+                          child: Text("Report"),
+                        ),
+                        SizedBox(
+                          width: 30,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+                  ],
+                ),
+              );
   }
 }
