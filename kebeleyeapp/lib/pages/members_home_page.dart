@@ -185,7 +185,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
                     height: 250,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: officials.length,
+                        itemCount: officials.length, 
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
