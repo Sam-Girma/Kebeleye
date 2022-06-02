@@ -4,12 +4,8 @@ import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginOfficial extends StatefulWidget {
-  @override
-  LoginPageState createState() => LoginPageState();
-}
+class LoginOfficial extends StatelessWidget {
 
-class LoginPageState extends State<LoginOfficial> {
   bool isSignupScreen = true;
   bool isRememberme = false;
   bool isbscure = true;
@@ -57,9 +53,9 @@ class LoginPageState extends State<LoginOfficial> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              setState(() {
-                                isSignupScreen = false;
-                              });
+                              // setState(() {
+                              //   isSignupScreen = false;
+                              // });
                             },
                             child: Column(
                               children: [
@@ -82,9 +78,9 @@ class LoginPageState extends State<LoginOfficial> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              setState(() {
-                                isSignupScreen = true;
-                              });
+                              // setState(() {
+                              //   isSignupScreen = true;
+                              // });
                             },
                             child: Column(
                               children: [
@@ -237,9 +233,9 @@ class LoginPageState extends State<LoginOfficial> {
             suffixIcon: ispassword
                 ? IconButton(
                     onPressed: () {
-                      setState(() {
-                        isbscure = !isbscure;
-                      });
+                      // setState(() {
+                      //   isbscure = !isbscure;
+                      // });
                     },
                     icon: Icon(
                         isbscure ? Icons.visibility_off : Icons.visibility))
