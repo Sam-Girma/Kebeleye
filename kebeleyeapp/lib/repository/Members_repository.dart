@@ -12,8 +12,8 @@ Future<Member> update(String username, Member member) async{
   return dataProvider.update(username, member);
 
 }
-Future<Future<Member>> fetchByDepartment(String position) async{
-  return dataProvider.fetchByDepartment(position);
+Future<Future<Member>> fetchuser(String kebeleyeid, String password) async{
+  return dataProvider.fetchuser(kebeleyeid, password);
 }
 Future<void> delete(int id) async {
   dataProvider.delete(id);

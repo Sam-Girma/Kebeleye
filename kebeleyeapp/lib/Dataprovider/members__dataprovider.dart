@@ -28,8 +28,8 @@ if (response.statusCode == 201){
 
 
 }
-Future<Member> fetchByDepartment(String position) async{
-  final response = await http.get(Uri.parse("$_baseUrl/$position"));
+Future<Member> fetchuser(String kebeleyeId, String password) async{
+  final response = await http.get(Uri.parse("$_baseUrl/$kebeleyeId"));
 
   if (response.statusCode == 200){
     return Member.fromJson(jsonDecode(response.body));
