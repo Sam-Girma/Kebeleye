@@ -36,6 +36,16 @@ Future<Post> fetchByboolian(bool is_post) async{
     throw Exception("Fetching posts failed.");
   }
 }
+Future<Post> fetchByOfficial(String username) async{
+  final response = await http.get(Uri.parse("$_baseUrl/$username"));
+
+  if (response.statusCode == 200){
+    return Post.fromJson(jsonDecode(response.body));
+  }
+  else{
+    throw Exception("Fetching posts failed.");
+  }
+}
 Future<Post> update(String postcontent,Post post) async{
   final response = await http.put(Uri.parse("$_baseUrl/$postcontent"),
   headers: <String, String>{"Content-Type": "application/json"},

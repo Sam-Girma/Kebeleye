@@ -4,14 +4,14 @@ import 'package:kebeleyeapp/Bloc/feedback_event.dart';
 import 'package:kebeleyeapp/Bloc/feedback_state.dart';
 
 
-class HomepageBloc extends Bloc<FeedbackEvent, FeedbackState> {
-  HomepageBloc() : super(ClearedState()) {
-    on<ClearEvent>(_onclear);
+class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
+  FeedbackBloc() : super(ClearedFeedbackState()) {
+    on<ClearFeedbackEvent>(_onclear);
     on<SendfeedbackEvent>(_onsendfeedback);
   }
 }
 
-void _onclear(ClearEvent event, Emitter emit){
+void _onclear(ClearFeedbackEvent event, Emitter emit){
 
 }
 void _onsendfeedback(SendfeedbackEvent event, Emitter emit){

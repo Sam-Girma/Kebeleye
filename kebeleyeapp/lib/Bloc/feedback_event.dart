@@ -2,17 +2,15 @@ import 'package:equatable/equatable.dart';
 
 abstract class FeedbackEvent extends Equatable{
   const FeedbackEvent();
-
-}
-class ClearEvent extends FeedbackEvent{
-  @override
+@override
   // TODO: implement props
   List<Object?> get props => [];
+
+}
+class ClearFeedbackEvent extends FeedbackEvent{
+  
 }
 class SendfeedbackEvent extends FeedbackEvent{
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-  
+ 
 } 
-
+class FetchfeedbackEvent extends FeedbackEvent{}
