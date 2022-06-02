@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:kebeleyeapp/pages/loginofficials.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 
 void main() {
@@ -10,9 +11,12 @@ void main() {
   }
 
   testWidgets('', (WidgetTester tester) async {
+   
+    const widget = LoginPage;
     await tester.pumpWidget(makeTestableWidget(child: LoginPage()));
-    // var textfield = find.byType(Stack);
-    // expect(textfield, findsOneWidget);
+
+    
+    // expect(state.methodToBeTested(), 0);
   }
   );
 }

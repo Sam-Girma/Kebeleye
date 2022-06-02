@@ -11,7 +11,7 @@ void main() {
   }
 
   testWidgets('', (WidgetTester tester) async {
-    await tester.pumpWidget(makeTestableWidget(child:PostPage(name: name, position: position, imageurl: imageurl) ));
+    // await tester.pumpWidget(makeTestableWidget(child:PostPage(name: name, position: position, imageurl: imageurl) ));
     // await tester.enterText(find.byType(TextFormField), 'hi');
 
   }

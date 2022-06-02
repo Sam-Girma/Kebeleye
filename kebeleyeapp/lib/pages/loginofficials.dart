@@ -6,10 +6,10 @@ import 'package:go_router/go_router.dart';
 
 class LoginOfficial extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginOfficial> {
+class LoginPageState extends State<LoginOfficial> {
   bool isSignupScreen = true;
   bool isRememberme = false;
   bool isbscure = true;
