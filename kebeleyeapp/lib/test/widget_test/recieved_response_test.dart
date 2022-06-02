@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-class ResponseScreen extends StatefulWidget {
-  const ResponseScreen({ Key? key }) : super(key: key);
+import 'package:flutter_test/flutter_test.dart';
+import 'package:kebeleyeapp/pages/loginpage.dart';
+import 'package:kebeleyeapp/pages/recieved_response.dart';
 
-  @override
-  State<ResponseScreen> createState() => _ResponseScreenState();
-}
-
-class _ResponseScreenState extends State<ResponseScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Response"),
-      ),
-      body: Container()//ListView.builder(itemBuilder: 10), to be connected to the database
-      
+void main() {
+  Widget makeTestableWidget({required Widget child}) {
+    return MaterialApp(
+      home: child,
     );
   }
+
+  testWidgets('', (WidgetTester tester) async {
+    await tester.pumpWidget(makeTestableWidget(child: ResponseScreen()));
+    // await tester.enterText(find.byType(TextFormField), 'hi');
+
+  }
+  );
 }

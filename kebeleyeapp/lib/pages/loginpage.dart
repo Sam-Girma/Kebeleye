@@ -231,10 +231,10 @@ class _LoginPageState extends State<LoginPage> {
   Form buildtextfield(
       IconData icon, String hintText, bool ispassword, bool isEmail) {
     return Form(
-      // key: _formkey,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 8.0),
         child: TextFormField(
+          key: Key('inputtextfiled'),
           obscureText: ispassword ? isbscure : false,
           keyboardType:
               isEmail ? TextInputType.emailAddress : TextInputType.text,

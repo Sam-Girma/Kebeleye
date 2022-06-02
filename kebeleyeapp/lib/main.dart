@@ -44,15 +44,16 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) =>
-            MembersHomePage(),
+        LoginPage(),
+      ),
+      GoRoute(
+        path: '/membershomepage',
+        builder: (BuildContext context, GoRouterState state) =>
+        MembersHomePage(),
       ),
       GoRoute(
         path: '/loginofficials',
         builder: (BuildContext context, GoRouterState state) => LoginOfficial(),
-      ),
-      GoRoute(
-        path: '/loginpage',
-        builder: (BuildContext context, GoRouterState state) => LoginPage(),
       ),
       GoRoute(
         path: '/OfficialsHomePage',
@@ -75,7 +76,7 @@ class MyApp extends StatelessWidget {
             ResponseScreen(),
       ),
       GoRoute(
-        path: '/responsescreen',
+        path: '/memberseditaccount',
         builder: (BuildContext context, GoRouterState state) =>
             MembersEditAccountScreen(),
       ),

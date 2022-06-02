@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-class MembersEditAccountScreen extends StatefulWidget {
-  const MembersEditAccountScreen({ Key? key }) : super(key: key);
+import 'package:flutter_test/flutter_test.dart';
+import 'package:kebeleyeapp/pages/loginpage.dart';
+import 'package:kebeleyeapp/pages/members_edit_account_page.dart';
 
-  @override
-  State<MembersEditAccountScreen> createState() => _MembersEditAccountScreenState();
-}
-
-class _MembersEditAccountScreenState extends State<MembersEditAccountScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
+void main() {
+  Widget makeTestableWidget({required Widget child}) {
+    return MaterialApp(
+      home: child,
     );
   }
+
+  testWidgets('', (WidgetTester tester) async {
+    await tester.pumpWidget(makeTestableWidget(child: MembersEditAccountScreen()));
+    // await tester.enterText(find.byType(TextFormField), 'hi');
+
+  }
+  );
 }

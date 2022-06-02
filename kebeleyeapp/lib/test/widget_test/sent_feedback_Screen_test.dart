@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:kebeleyeapp/pages/loginpage.dart';
+import 'package:kebeleyeapp/pages/sent_feedback_Screen.dart';
 
-class SentFeedbackScreen extends StatefulWidget {
-  const SentFeedbackScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SentFeedbackScreen> createState() => _SentFeedbackScreenState();
-}
-
-class _SentFeedbackScreenState extends State<SentFeedbackScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Sent feedbacks"),
-      ),
-      body: Container()
-      
+void main() {
+  Widget makeTestableWidget({required Widget child}) {
+    return MaterialApp(
+      home: child,
     );
   }
+
+  testWidgets('', (WidgetTester tester) async {
+    await tester.pumpWidget(makeTestableWidget(child: SentFeedbackScreen()));
+    // await tester.enterText(find.byType(TextFormField), 'hi');
+
+  }
+  );
 }

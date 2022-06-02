@@ -10,10 +10,10 @@ class PostPage extends StatefulWidget {
   const PostPage({Key? key, required this.name, required this.position, required this.imageurl}) : super(key: key);
 
   @override
-  State<PostPage> createState() => _PostPageState();
+  State<PostPage> createState() => PostPageState();
 }
 
-class _PostPageState extends State<PostPage> {
+class PostPageState extends State<PostPage> {
   int index = 0;
   List<bool> checkval = [false, false, false, false, false];
   @override

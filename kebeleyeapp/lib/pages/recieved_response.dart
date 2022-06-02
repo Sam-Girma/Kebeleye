@@ -3,10 +3,10 @@ class ResponseScreen extends StatefulWidget {
   const ResponseScreen({ Key? key }) : super(key: key);
 
   @override
-  State<ResponseScreen> createState() => _ResponseScreenState();
+  State<ResponseScreen> createState() => ResponseScreenState();
 }
 
-class _ResponseScreenState extends State<ResponseScreen> {
+class ResponseScreenState extends State<ResponseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
