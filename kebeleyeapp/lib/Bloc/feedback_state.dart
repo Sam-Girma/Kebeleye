@@ -1,22 +1,24 @@
 import 'package:equatable/equatable.dart';
 
 abstract class FeedbackState extends Equatable{
-
-}
-class ClearedState extends FeedbackState{
-  @override
+@override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
+}
+class ClearedFeedbackState extends FeedbackState{
+  
   
 }
 class SendingFeedbackState extends FeedbackState{
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+ 
+}
+class SendingFeedbackSuccess extends FeedbackState{
   
 }
-class SendingSuccessfulState extends FeedbackState{
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+class FetchingFeedbackState extends FeedbackState{
+
+}
+class FetchedFeedbackState extends FeedbackState{
+  final List fetchedData;
+  FetchedFeedbackState(this.fetchedData);
 }
