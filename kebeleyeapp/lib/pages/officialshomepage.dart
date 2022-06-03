@@ -22,7 +22,7 @@ class OfficialsHomePage extends StatelessWidget {
       ListView.builder(
         itemCount: _userfeedback.length,
         itemBuilder: (context, index) {
-          return Flexible(
+          return Container(
             child: (Container(
               height: 400,
               margin: EdgeInsets.all(20), // add margin
@@ -39,7 +39,7 @@ class OfficialsHomePage extends StatelessWidget {
       ListView.builder(
         itemCount: _userfeedback.length,
         itemBuilder: (context, index) {
-          return Flexible(
+          return Container(
             child: (Container(
               height: 400,
               margin: EdgeInsets.all(20), // add margin
@@ -205,7 +205,9 @@ class OfficialsHomePage extends StatelessWidget {
                   TextStyle(color: Colors.black ),
             ),
           ),
-          Flexible(
+          Container(
+            height: 300,
+            width: 100,
               child: Padding(
             padding: EdgeInsets.all(30),
             child: TextField(
