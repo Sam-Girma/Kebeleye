@@ -5,14 +5,11 @@ abstract class AuthEvent extends Equatable{
   
   List<Object?> get props => throw UnimplementedError();
 }
-class ChangetoLoginPage extends AuthEvent{
+class ChangetoScreens extends AuthEvent{
   final bool is_signupscreen;
-  ChangetoLoginPage({required this.is_signupscreen});
+  ChangetoScreens({required this.is_signupscreen});
 }
-class ChangetoSignupPage extends AuthEvent{
-  final bool is_signupScreen;
-  ChangetoSignupPage({required this.is_signupScreen});
-}
+
 class LoginEvent extends AuthEvent{
   final String kebeleyeid;
   final String password;
@@ -20,7 +17,7 @@ class LoginEvent extends AuthEvent{
   
   
 }
-class Signup extends AuthEvent{
+class TologinOfficial extends AuthEvent{
  
 
 }

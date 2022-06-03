@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:go_router/go_router.dart';
+
+import '../Bloc/bloc.dart';
 
 class LoginOfficial extends StatefulWidget {
   @override
@@ -33,145 +36,158 @@ class _LoginPageState extends State<LoginOfficial> {
                   ),
                 ),
               )),
-          Positioned(
-              top: 200,
-              child: Container(
-                padding: EdgeInsets.all(20),
-                height: isSignupScreen ? 420 : 350,
-                width: MediaQuery.of(context).size.width - 40,
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
-                        blurRadius: 15,
-                        spreadRadius: 5,
-                      )
-                    ]),
-                child: Column(
-                  children: [
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isSignupScreen = false;
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                Text("LOGIN",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: isSignupScreen
-                                            ? coloringclasss.TEXTCOLOR1
-                                            : coloringclasss.Activecolor)),
-                                if (!isSignupScreen)
-                                  Container(
-                                    margin: EdgeInsets.only(top: 3),
-                                    height: 2,
-                                    width: 55,
-                                    color: Colors.blue,
-                                  )
-                              ],
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                isSignupScreen = true;
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                Text("Signup",
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: isSignupScreen
-                                            ? coloringclasss.Activecolor
-                                            : coloringclasss.TEXTCOLOR1)),
-                                if (isSignupScreen)
-                                  Container(
-                                    margin: EdgeInsets.only(top: 2),
-                                    height: 2,
-                                    width: 55,
-                                    color: Colors.blue,
-                                  )
-                              ],
-                            ),
+          BlocConsumer<AuthBloc, AuthState>(
+            listener: (context, state) {
+              if (state is Loginmemberstate){
+                context.go("/loginmember");
+              }
+            },
+            builder: (context, state) {
+              return Positioned(
+                  top: 200,
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    height:  state.issignupScreen? 420 : 350,
+                    width: MediaQuery.of(context).size.width - 40,
+                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.3),
+                            blurRadius: 15,
+                            spreadRadius: 5,
                           )
                         ]),
-                    isSignupScreen
-                        ? buildsignupsection(context)
-                        : Container(
-                            margin: EdgeInsets.only(top: 20),
-                            child: Column(
-                              children: [
-                                buildtextfield(
-                                    Icons.person, "Kebele ID", false, true),
-                                buildtextfield(
-                                    Icons.password, "password", true, false),
-                                Container(
-                                  child: Align(
-                                    alignment: Alignment.centerRight,
-                                    child: TextButton(
-                                      onPressed: () {},
-                                      child: const Text(
-                                        "Forget Password?",
+                    child: Column(
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  final authBloc =
+                                  BlocProvider.of<AuthBloc>(context);
+                              authBloc.add(ChangetoScreens(is_signupscreen: false)
+                              );;
+                                },
+                                child: Column(
+                                  children: [
+                                    Text("LOGIN",
                                         style: TextStyle(
-                                          fontSize: 12,
-                                          color: coloringclasss.textcolor2,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: isSignupScreen
+                                                ? coloringclasss.TEXTCOLOR1
+                                                : coloringclasss.Activecolor)),
+                                    if (!state.issignupScreen)
+                                      Container(
+                                        margin: EdgeInsets.only(top: 3),
+                                        height: 2,
+                                        width: 55,
+                                        color: Colors.blue,
+                                      )
+                                  ],
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  final authBloc =
+                                  BlocProvider.of<AuthBloc>(context);
+                              authBloc.add(ChangetoScreens(is_signupscreen: true)
+                              );
+                                },
+                                child: Column(
+                                  children: [
+                                    Text("Signup",
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                            color: isSignupScreen
+                                                ? coloringclasss.Activecolor
+                                                : coloringclasss.TEXTCOLOR1)),
+                                    if (isSignupScreen)
+                                      Container(
+                                        margin: EdgeInsets.only(top: 2),
+                                        height: 2,
+                                        width: 55,
+                                        color: Colors.blue,
+                                      )
+                                  ],
+                                ),
+                              )
+                            ]),
+                        state.issignupScreen
+                            ? buildsignupsection(context)
+                            : Container(
+                                margin: EdgeInsets.only(top: 20),
+                                child: Column(
+                                  children: [
+                                    buildtextfield(
+                                        Icons.person, "Kebele ID", false, true),
+                                    buildtextfield(Icons.password, "password",
+                                        true, false),
+                                    Container(
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: TextButton(
+                                          onPressed: () {},
+                                          child: const Text(
+                                            "Forget Password?",
+                                            style: TextStyle(
+                                              fontSize: 12,
+                                              color: coloringclasss.textcolor2,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                Container(
-                                  child: TextButton(
-                                    onPressed: () {
-                                      context.go("/loginpage");
-                                    },
-                                    child: const Text(
-                                      "For Kebele members ? Signup/login here",
-                                      style: TextStyle(
-                                          fontSize: 12, color: Colors.orange),
-                                    ),
-                                  ),
-                                ),
-                                Container(
-                                  alignment: Alignment.center,
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.08,
-                                  width: double.infinity,
-                                  child: SizedBox(
-                                    width: double.infinity,
-                                    child: RaisedButton(
-                                      color: blueColors,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                        Radius.circular(20),
-                                      )),
-                                      onPressed: () {},
-                                      child: Text(
-                                        "Log in",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
+                                    Container(
+                                      child: TextButton(
+                                        onPressed: () {
+                                          context.go("/loginpage");
+                                        },
+                                        child: const Text(
+                                          "For Kebele members ? Signup/login here",
+                                          style: TextStyle(
+                                              fontSize: 12,
+                                              color: Colors.orange),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ],
-                            ))
-                  ],
-                ),
-              ))
+                                    Container(
+                                      alignment: Alignment.center,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.08,
+                                      width: double.infinity,
+                                      child: SizedBox(
+                                        width: double.infinity,
+                                        child: RaisedButton(
+                                          color: blueColors,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                            Radius.circular(20),
+                                          )),
+                                          onPressed: () {},
+                                          child: Text(
+                                            "Log in",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ))
+                      ],
+                    ),
+                  ));
+            },
+          )
         ]));
   }
 
@@ -187,10 +203,9 @@ class _LoginPageState extends State<LoginOfficial> {
             Container(
               child: TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  );
+                  final authBloc =
+                                  BlocProvider.of<AuthBloc>(context);
+                              authBloc.add(TologinOfficial());;
                 },
                 child: const Text(
                   "For Kebele members ? Signup/login here",
