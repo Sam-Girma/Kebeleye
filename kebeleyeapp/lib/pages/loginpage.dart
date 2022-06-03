@@ -7,6 +7,8 @@ import 'package:kebeleyeapp/pages/loginofficials.dart';
 import 'package:http/http.dart' as http;
 import 'package:go_router/go_router.dart';
 
+import '../Bloc/bloc.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -75,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context, state) {
           return GestureDetector(
             onTap: () {
-              context.read().add(ChangetoLoginPage(is_signupscreen: false));
+              context.read().add(TologinOfficial());
             },
             child: Column(
               children: [
@@ -101,8 +103,7 @@ class _LoginPageState extends State<LoginPage> {
       BlocBuilder<AuthBloc, AuthState>(
         builder: (context, state) {
           return GestureDetector(
-            onTap: () {
-        context.read().add(ChangetoSignupPage(is_signupScreen: true));},            
+            onTap: () {TologinOfficial();},            
             child: Column(
               children: [
                 Text("Signup",
@@ -140,7 +141,9 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               child: TextButton(
                 onPressed: () {
-                  context.go("/loginofficials");
+                  final authBloc =
+                                  BlocProvider.of<AuthBloc>(context);
+                              authBloc.add(TologinOfficial());
                 },
                 child: const Text(
                   "For Administrators and Officials ? Signup/login here",

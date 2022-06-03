@@ -12,8 +12,8 @@ Future<Post> update(String postcontent, Post post) async{
   return dataProvider.update(postcontent, post);
 
 }
-Future<Future<Post>> fetchByDepartment(bool is_post) async{
-  return dataProvider.fetchByboolian(is_post);
+Future<Future<Post>> fetchByOfficial(String official) async{
+  return dataProvider.fetchByOfficial(official);
 }
 Future<void> delete(int id) async {
   dataProvider.delete(id);

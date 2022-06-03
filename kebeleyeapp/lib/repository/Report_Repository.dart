@@ -16,6 +16,9 @@ Future<Report> update(String reportcontent, Report report) async{
 Future<Future<Report>> fetchByDepartment(bool is_report) async{
   return dataProvider.fetchByboolian(is_report);
 }
+Future<Future<Report>> fetchreportByname(String username) async{
+  return dataProvider.fetchreportByname(username);
+}
 Future<void> delete(int id) async {
   dataProvider.delete(id);
 }

@@ -36,6 +36,16 @@ Future<Report> fetchByboolian(bool is_report) async{
     throw Exception("Fetching reports failed.");
   }
 }
+Future<Report> fetchreportByname(String username) async{
+  final response = await http.get(Uri.parse("$_baseUrl/$username"));
+
+  if (response.statusCode == 200){
+    return Report.fromJson(jsonDecode(response.body));
+  }
+  else{
+    throw Exception("Fetching reports failed.");
+  }
+}
 Future<Report> update(String reportcontent,Report report) async{
   final response = await http.put(Uri.parse("$_baseUrl/$reportcontent"),
   headers: <String, String>{"Content-Type": "application/json"},
