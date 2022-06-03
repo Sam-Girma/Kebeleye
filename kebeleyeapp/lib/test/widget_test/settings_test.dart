@@ -4,14 +4,15 @@ import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:kebeleyeapp/pages/settings.dart';
 
 void main() {
-  Widget makeTestableWidget({required Widget child}) {
-    return MaterialApp(
-      home: child,
-    );
-  }
+
 
   testWidgets('', (WidgetTester tester) async {
-    await tester.pumpWidget(makeTestableWidget(child: setting(colindex: 1)));
+    const testkey = Key("test_fied_1");
+    const testkey2 = Key("test_fied_2");
+    await tester.pumpWidget(MaterialApp(key:testkey,home:setting(colindex: 1)));
+    expect(find.byKey(testkey), findsNWidgets(2));
+    // await tester.enterText(find.byType(TextField), 'hi_there');
+    // expect(find.text("hi_there"), findsOneWidget);
 
   }
   );

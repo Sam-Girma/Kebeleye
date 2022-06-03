@@ -10,17 +10,15 @@ import 'package:flutter_driver/driver_extension.dart';
 import 'package:fast_flutter_driver/tool.dart';
 
 void main() {
-  Widget makeTestableWidget({required Widget child}) {
-    return MaterialApp(
-      home: child,
-    );
-  }
+
 
   testWidgets('', (WidgetTester tester) async {
     await tester.pumpWidget(MaterialApp(home: OfficialsHomePage()));
 
     expect(find.byType(ListView), findsNWidgets(1));
     expect(find.byType(BottomNavigationBar), findsNWidgets(1));
+    expect(find.byType(BottomNavigationBar), findsNWidgets(1));
+
     // expect(find.byType(Icons), findsNWidgets(4));
       // await driver.waitFor(find.byValueKey('bottom'));
 
