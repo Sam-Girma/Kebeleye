@@ -7,22 +7,18 @@ import 'package:kebeleyeapp/pages/model_for_posts.dart';
 
 import '../Bloc/bottom_nav_bloc.dart';
 
-class PostPage extends StatefulWidget {
+class PostPage extends StatelessWidget {
   final String name;
   final String position;
   final String imageurl;
-  const PostPage(
+   PostPage(
       {Key? key,
       required this.name,
       required this.position,
       required this.imageurl})
       : super(key: key);
 
-  @override
-  State<PostPage> createState() => PostPageState();
-}
 
-class PostPageState extends State<PostPage> {
   int index = 0;
   List<bool> checkval = [false, false, false, false, false];
   @override
@@ -43,7 +39,7 @@ class PostPageState extends State<PostPage> {
                 children: [
                   CircleAvatar(
                     radius: 30,
-                    backgroundImage: AssetImage("${widget.imageurl}"),
+                    backgroundImage: AssetImage("$imageurl"),
                   ),
                   SizedBox(
                     width: 30,
@@ -51,8 +47,8 @@ class PostPageState extends State<PostPage> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("${widget.name}"),
-                      Text("${widget.position}"),
+                      Text("$name"),
+                      Text("$position"),
                     ],
                   ),
                 ],
@@ -67,9 +63,9 @@ class PostPageState extends State<PostPage> {
           return BottomNavigationBar(
               currentIndex: index,
               onTap: (value) {
-                setState(() {
-                  index = value;
-                });
+                // setState(() {
+                //   index = value;
+                // });
               },
               selectedItemColor: Theme.of(context).appBarTheme.color,
               items: [
@@ -180,11 +176,11 @@ class PostPageState extends State<PostPage> {
                               title: Text("Not on time."),
                               value: checkval[0],
                               onChanged: (bool) {
-                                setState(
-                                  () {
-                                    checkval[0] = !checkval[0];
-                                  },
-                                );
+                                // setState(
+                                //   () {
+                                //     checkval[0] = !checkval[0];
+                                //   },
+                                // );
                               },
                             ),
                           ),
@@ -194,11 +190,11 @@ class PostPageState extends State<PostPage> {
                               title: Text("Was very arrogant"),
                               value: checkval[1],
                               onChanged: (bool) {
-                                setState(
-                                  () {
-                                    checkval[1] = !checkval[1];
-                                  },
-                                );
+                                // setState(
+                                //   () {
+                                //     checkval[1] = !checkval[1];
+                                //   },
+                                // );
                               },
                             ),
                           ),
@@ -211,11 +207,11 @@ class PostPageState extends State<PostPage> {
                             title: Text("Corruption"),
                             value: checkval[2],
                             onChanged: (bool) {
-                              setState(
-                                () {
-                                  checkval[2] = !checkval[2];
-                                },
-                              );
+                              // setState(
+                              //   () {
+                              //     checkval[2] = !checkval[2];
+                              //   },
+                              // );
                             },
                           ),
                         ),
@@ -225,11 +221,11 @@ class PostPageState extends State<PostPage> {
                             title: Text("Sexual harasement"),
                             value: checkval[3],
                             onChanged: (bool) {
-                              setState(
-                                () {
-                                  checkval[3] = !checkval[3];
-                                },
-                              );
+                              // setState(
+                              //   () {
+                              //     checkval[3] = !checkval[3];
+                              //   },
+                              // );
                             },
                           ),
                         ),
@@ -243,11 +239,11 @@ class PostPageState extends State<PostPage> {
                               title: Text("Other"),
                               value: checkval[4],
                               onChanged: (bool) {
-                                setState(
-                                  () {
-                                    checkval[4] = !checkval[4];
-                                  },
-                                );
+                                // setState(
+                                //   () {
+                                //     checkval[4] = !checkval[4];
+                                //   },
+                                // );
                               },
                             ),
                           )

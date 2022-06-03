@@ -353,6 +353,7 @@ class OfficialsHomePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: pages[navindex],
       bottomNavigationBar: BottomNavigationBar(
+        key: Key('bottom'),
         backgroundColor: Colors.white ,
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.black,

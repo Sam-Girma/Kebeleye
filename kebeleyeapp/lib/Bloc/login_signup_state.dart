@@ -1,13 +1,19 @@
 import 'package:equatable/equatable.dart';
 
-import '../models/members.dart';
+
+import 'bloc.dart';
 
 abstract class AuthState extends Equatable{
   @override
   List<Object?> get props => [];
 
+  get issignupScreen => null;
+
 }
 class IdleLoginstate extends AuthState{
+  bool is_signupScreen = false;
+  IdleLoginstate();
+  
 }
 class IdleSignupstate extends AuthState{
   
@@ -24,3 +30,5 @@ class LoginSuccessfulState extends AuthState{
 class LoginFailedState extends AuthState{
 
 }
+class LoginOfficialstate extends AuthState{}
+class Loginmemberstate extends AuthState{}

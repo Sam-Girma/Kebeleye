@@ -12,8 +12,7 @@ void main() {
   }
 
   testWidgets('', (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(home:setting(colindex: 1,)));
-    // await tester.enterText(find.byType(TextFormField), 'hi');
+    await tester.pumpWidget(MaterialApp(home:SentFeedbackScreen()));
 
   }
   );

@@ -2,15 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../Bloc/bloc.dart';
+//screenn not testable
+class SentReportScreen extends StatelessWidget {
 
-class SentReportScreen extends StatefulWidget {
-  const SentReportScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SentReportScreen> createState() => _SentReportScreenState();
-}
-
-class _SentReportScreenState extends State<SentReportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

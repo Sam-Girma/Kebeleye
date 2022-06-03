@@ -27,7 +27,9 @@ void main() {
     expect(find.text("hi_there"), findsOneWidget);
     expect(find.byType(GestureDetector), findsNWidgets(9));
     await tester.tap(find.byKey(testkey));
-    
+    final ScaffoldState state = tester.firstState(find.byType(Scaffold));
+    state.openDrawer();
+    await tester.pump();
 
   }
   );

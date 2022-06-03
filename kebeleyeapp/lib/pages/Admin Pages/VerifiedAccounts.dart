@@ -3,20 +3,15 @@ import 'package:flutter/material.dart';
 import 'AccountsTobeVerified.dart';
 import 'package:go_router/go_router.dart';
 
-class VerifiedAccounts extends StatefulWidget {
-  const VerifiedAccounts({Key? key}) : super(key: key);
+class VerifiedAccounts extends StatelessWidget {
 
-  @override
-  State<VerifiedAccounts> createState() => _VerifiedAccountsState();
-}
-
-class _VerifiedAccountsState extends State<VerifiedAccounts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
+
               onPressed: () {
                 showSearch(context: context, delegate: MySearchDelegate());
               },
@@ -36,6 +31,7 @@ class _VerifiedAccountsState extends State<VerifiedAccounts> {
               margin:
                   const EdgeInsets.only(top: 50, left: 4, right: 4, bottom: 4),
               child: TextButton(
+
                   onPressed: () {
                     context.go("/accoountstobeverified");
                   },
@@ -78,12 +74,14 @@ class MySearchDelegate extends SearchDelegate {
 
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
+      key:Key("button_2"),
       onPressed: () => close(context, null), // closes searchbar
       icon: const Icon(Icons.arrow_back));
 
   @override
   List<Widget>? buildActions(BuildContext context) => [
         IconButton(
+        key:Key("button_1"),
           onPressed: () {
             if (query.isEmpty) {
               close(context, null); //close searchbar
@@ -143,7 +141,7 @@ Widget _buildUsers() => ListView(
           Container(
             width: 40,
             height: 40,
-            child: Image.asset('assets/Admin-Images/male_avatar.png'),
+            // child: Image.asset('assets/Admin-Images/male_avatar.png'),
           ),
         ),
         _tile(
@@ -152,7 +150,7 @@ Widget _buildUsers() => ListView(
           Container(
             width: 40,
             height: 40,
-            child: Image.asset('assets/Admin-Images/male_avatar.png'),
+            // child: Image.asset('assets/Admin-Images/male_avatar.png'),
           ),
         ),
         _tile(
@@ -161,7 +159,7 @@ Widget _buildUsers() => ListView(
           Container(
             width: 40,
             height: 40,
-            child: Image.asset('assets/Admin-Images/male_avatar.png'),
+            // child: Image.asset('assets/Admin-Images/male_avatar.png'),
           ),
         ),
         _tile(
@@ -170,7 +168,7 @@ Widget _buildUsers() => ListView(
           Container(
             width: 40,
             height: 40,
-            child: Image.asset('assets/Admin-Images/female_avatar.png'),
+            // child: Image.asset('assets/Admin-Images/female_avatar.png'),
           ),
         ),
       ],
