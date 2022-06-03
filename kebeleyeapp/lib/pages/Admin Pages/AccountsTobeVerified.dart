@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 import 'VerifiedAccounts.dart';
 import 'package:go_router/go_router.dart';
 
-class AccountsToBeVerified extends StatefulWidget {
-  const AccountsToBeVerified({Key? key}) : super(key: key);
+class AccountsToBeVerified extends StatelessWidget {
 
-  @override
-  State<AccountsToBeVerified> createState() => _AccountsToBeVerifiedState();
-}
-
-class _AccountsToBeVerifiedState extends State<AccountsToBeVerified> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           actions: [
             IconButton(
+              key:Key("button_1"),
                 onPressed: () {
                   showSearch(context: context, delegate: ATVSearchDelegate());
                 },
@@ -37,6 +32,7 @@ class _AccountsToBeVerifiedState extends State<AccountsToBeVerified> {
                 margin: const EdgeInsets.only(
                     top: 50, left: 4, right: 4, bottom: 4),
                 child: TextButton(
+                    key:Key("button_2"),
                     style: TextButton.styleFrom(primary: Colors.blue),
                     onPressed: () {
                       context.go('/accoountstobeverified');

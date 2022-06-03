@@ -37,7 +37,9 @@ class OfficialsHomePage extends StatelessWidget {
           );
         },
       ):
-      (navindex==1? ListView.builder(
+      (
+        navindex==1? 
+      ListView.builder(
         itemCount: _userfeedback.length,
         itemBuilder: (context, index) {
           return Container(
@@ -49,7 +51,8 @@ class OfficialsHomePage extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(20))),
           );
         },
-      ):(navindex==2?
+      ):(
+        navindex==2?
             ListView(
         children: [
           SizedBox(
@@ -71,6 +74,7 @@ class OfficialsHomePage extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: 30),
                     child: TextFormField(
+                      key: Key("a"),
                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
@@ -92,6 +96,7 @@ class OfficialsHomePage extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(right: 10, left: 10),
                     child: TextFormField(
+                      key: Key("b"),
                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
@@ -112,6 +117,7 @@ class OfficialsHomePage extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(right: 40, left: 10),
                     child: TextFormField(
+                      key: Key("c"),
                       style: TextStyle(
                           color: colindex == 0 ? Colors.black : Colors.white),
                       keyboardType: TextInputType.number,
@@ -140,6 +146,7 @@ class OfficialsHomePage extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(left: 30, right: 70),
                     child: TextFormField(
+                      key: Key("d"),
                       style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
@@ -160,6 +167,7 @@ class OfficialsHomePage extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.only(right: 70),
                     child: TextFormField(
+                      key: Key("e"),
                       style: TextStyle(
                           color: colindex == 0 ? Colors.black : Colors.white),
                       keyboardType: TextInputType.number,
@@ -192,7 +200,8 @@ class OfficialsHomePage extends StatelessWidget {
               width: 100,
               child: Padding(
                 padding: EdgeInsets.all(30),
-                child: TextField(
+                child: TextFormField(
+                  key: Key("f"),
                   style: TextStyle(color: Colors.black),
                   maxLines: 10,
                   decoration: new InputDecoration(
