@@ -18,6 +18,7 @@ void main() {
     expect(find.byType(Form), findsNWidgets(1));
     expect(find.byType(Form), findsNWidgets(1));
     expect(find.byType(TextFormField), findsNWidgets(4));
+    await tester.enterText(find.byType(TextFormField), 'hi');
 
 
     expect(gridView, findsNothing);
