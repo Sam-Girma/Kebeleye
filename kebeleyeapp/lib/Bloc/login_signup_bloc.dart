@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kebeleyeapp/repository/Members_repository.dart';
-import 'login_event.dart';
-import 'login_state.dart';
+import 'login_signup_event.dart';
+import 'login_signup_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final MembersRepository membersRepository;
