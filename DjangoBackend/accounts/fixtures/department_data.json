@@ -1,0 +1,44 @@
+[
+    {
+        "model": "accounts.Department",
+        "pk": -1,
+        "fields" : {
+            "name" : "Head"
+        }
+    },
+    {
+        "model": "accounts.Department",
+        "pk": 0,
+        "fields" : {
+            "name" : "None"
+        }
+    },
+    {
+        "model": "accounts.Department",
+        "pk": 1,
+        "fields" : {
+            "name" : "Personal Information Department"
+        }
+    },
+    {
+        "model": "accounts.Department",
+        "pk": 2,
+        "fields" : {
+            "name" : "Money and Saving Department"
+        }
+    },
+    {
+        "model": "accounts.Department",
+        "pk": 3,
+        "fields" : {
+            "name" : "Household Services"
+        }
+    },
+    {
+        "model": "accounts.Department",
+        "pk": 4,
+        "fields" : {
+            "name" : "Lize and Homeland Department"
+        }
+    }
+]

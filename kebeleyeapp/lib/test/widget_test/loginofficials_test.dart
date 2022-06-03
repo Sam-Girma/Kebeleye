@@ -13,13 +13,13 @@ void main() {
 
   testWidgets('', (WidgetTester tester) async {
     await tester.pumpWidget(makeTestableWidget(child: LoginOfficial()));
-    var gridView = find.byType(GridView);
     expect(find.text("LOGIN"), findsOneWidget);
     expect(find.text("Signup"), findsOneWidget);
     expect(find.byType(Form), findsNWidgets(0));
     expect(find.byType(TextField), findsNWidgets(4));
+    expect(find.byType(TextButton), findsNWidgets(1));
+    await tester.tap(find.byType(RaisedButton));
 
-
-    expect(gridView, findsNothing);
-  });
+  }
+  );
 }

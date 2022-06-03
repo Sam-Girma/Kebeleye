@@ -63,6 +63,7 @@ List<bool> _showOfficials = [false, false, false, false, false];
               ),
             ),
             GestureDetector(
+              key:Key('Gesture_detector_1'),
               onTap: () {
                 context.go('/responsescreen');
               },
