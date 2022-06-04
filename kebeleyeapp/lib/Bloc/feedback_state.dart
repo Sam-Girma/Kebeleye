@@ -8,20 +8,20 @@ abstract class FeedbackState extends Equatable{
   
 }
 
-class ClearedReportState extends FeedbackState{}
-class ReportingState extends FeedbackState{}
-class ReportSuccessful extends FeedbackState{}
-class ReportFailedState extends FeedbackState{}
-class FetchingReportState extends FeedbackState{}
-class FetchingReportFailed extends FeedbackState{}
-class FetchingReportSuccessful extends FeedbackState{
+class ClearedFeedbackState extends FeedbackState{}
+class FeedbackingState extends FeedbackState{}
+class FeedbackSuccessful extends FeedbackState{}
+class FeedbackFailedState extends FeedbackState{}
+class FetchingFeecbackState extends FeedbackState{}
+class FetchingFeedbackFailed extends FeedbackState{}
+class FetchingFeedbackSuccessful extends FeedbackState{
   final List<Report> reports;
-  FetchingReportSuccessful(this.reports);
+  FetchingFeedbackSuccessful(this.reports);
 }
-class UpdateReportState extends FeedbackState{}
-class UpdateFailedState extends FeedbackState{}
-class UpdatingReportState extends FeedbackState{}
-class UpdateReportSuccesful extends FeedbackState{}
+class UpdateFeedbackState extends FeedbackState{}
+class UpdatefeedbackFailedState extends FeedbackState{}
+class UpdatingFeedbackReportState extends FeedbackState{}
+class UpdateFeedbackSuccesful extends FeedbackState{}
 
-class DeletedReportState extends FeedbackState{}
+class DeletedFeedbackState extends FeedbackState{}
 class DeleteFailedState extends FeedbackState{}
