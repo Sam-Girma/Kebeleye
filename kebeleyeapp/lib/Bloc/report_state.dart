@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:kebeleyeapp/models/models.dart';
 
 abstract class ReportState extends Equatable{
 @override
@@ -6,20 +7,21 @@ abstract class ReportState extends Equatable{
   List<Object?> get props => throw UnimplementedError();
   
 }
-class ClearedState extends ReportState{
-  
-}
-class SendingReportState extends ReportState{
-  
-}
-class SendingSuccessfulState extends ReportState{
-  
-}
 
-class FetchingfeedState extends ReportState{
+class ClearedReportState extends ReportState{}
+class ReportingState extends ReportState{}
+class ReportSuccessful extends ReportState{}
+class ReportFailedState extends ReportState{}
+class FetchingReportState extends ReportState{}
+class FetchingReportFailed extends ReportState{}
+class FetchingReportSuccessful extends ReportState{
+  final List<Report> reports;
+  FetchingReportSuccessful(this.reports);
+}
+class UpdateReportState extends ReportState{}
+class UpdateFailedState extends ReportState{}
+class UpdatingReportState extends ReportState{}
+class UpdateReportSuccesful extends ReportState{}
 
-}
-class FetchedfeedState extends ReportState{
-  final List fetchedData;
-  FetchedfeedState(this.fetchedData);
-}
+class DeletedReportState extends ReportState{}
+class DeleteFailedState extends ReportState{}

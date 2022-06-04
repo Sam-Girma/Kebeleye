@@ -3,14 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../Bloc/bloc.dart';
 
-class SentFeedbackScreen extends StatefulWidget {
-  const SentFeedbackScreen({Key? key}) : super(key: key);
+class SentFeedbackScreen extends StatelessWidget {
 
-  @override
-  State<SentFeedbackScreen> createState() => _SentFeedbackScreenState();
-}
-
-class _SentFeedbackScreenState extends State<SentFeedbackScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

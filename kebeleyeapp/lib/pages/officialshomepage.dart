@@ -3,12 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/settings.dart';
 
-class OfficialsHomePage extends StatefulWidget {
-  @override
-  State<OfficialsHomePage> createState() => _OfficialsHomePageState();
-}
+class OfficialsHomePage extends StatelessWidget {
 
-class _OfficialsHomePageState extends State<OfficialsHomePage> {
   List colors = [Colors.purple, Colors.grey.shade900];
   final _userfeedback = [
     "feedback1",
@@ -26,7 +22,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
       ListView.builder(
         itemCount: _userfeedback.length,
         itemBuilder: (context, index) {
-          return Flexible(
+          return Container(
             child: (Container(
               height: 400,
               margin: EdgeInsets.all(20), // add margin
@@ -43,7 +39,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
       ListView.builder(
         itemCount: _userfeedback.length,
         itemBuilder: (context, index) {
-          return Flexible(
+          return Container(
             child: (Container(
               height: 400,
               margin: EdgeInsets.all(20), // add margin
@@ -209,7 +205,9 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
                   TextStyle(color: Colors.black ),
             ),
           ),
-          Flexible(
+          Container(
+            height: 300,
+            width: 100,
               child: Padding(
             padding: EdgeInsets.all(30),
             child: TextField(
@@ -337,24 +335,7 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
               );
             },
           ),
-          // ListTile(
-          //   leading: Icon(Icons.sunny,
-          //       color: colindex == 0 ? Colors.purple : Colors.white),
-          //   title: Text(
-          //     "dark mode",
-          //     style: TextStyle(
-          //         color: colindex == 0 ? Colors.purple : Colors.white),
-          //   ),
-          //   onTap: () {
-          //     setState(() {
-          //       if (colindex == 1) {
-          //         colindex = 0;
-          //       } else {
-          //         colindex = 1;
-          //       }
-          //     });
-          //   },
-          // ),
+          
           ListTile(
             leading: Icon(Icons.logout,
                 color: Colors.purple),
@@ -378,9 +359,9 @@ class _OfficialsHomePageState extends State<OfficialsHomePage> {
         iconSize: 30,
         type: BottomNavigationBarType.fixed,
         currentIndex: navindex,
-        onTap: (int index) => setState(() {
-          navindex = index;
-        }),
+        // onTap: (int index) => setState(() {
+        //   navindex = index;
+        // }),
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.message), label: "announcments"),

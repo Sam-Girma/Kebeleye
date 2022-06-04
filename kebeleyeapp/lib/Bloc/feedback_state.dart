@@ -1,24 +1,27 @@
 import 'package:equatable/equatable.dart';
+import 'package:kebeleyeapp/models/models.dart';
 
 abstract class FeedbackState extends Equatable{
 @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
-}
-class ClearedFeedbackState extends FeedbackState{
-  
   
 }
-class SendingFeedbackState extends FeedbackState{
- 
-}
-class SendingFeedbackSuccess extends FeedbackState{
-  
-}
-class FetchingFeedbackState extends FeedbackState{
 
+class ClearedReportState extends FeedbackState{}
+class ReportingState extends FeedbackState{}
+class ReportSuccessful extends FeedbackState{}
+class ReportFailedState extends FeedbackState{}
+class FetchingReportState extends FeedbackState{}
+class FetchingReportFailed extends FeedbackState{}
+class FetchingReportSuccessful extends FeedbackState{
+  final List<Report> reports;
+  FetchingReportSuccessful(this.reports);
 }
-class FetchedFeedbackState extends FeedbackState{
-  final List fetchedData;
-  FetchedFeedbackState(this.fetchedData);
-}
+class UpdateReportState extends FeedbackState{}
+class UpdateFailedState extends FeedbackState{}
+class UpdatingReportState extends FeedbackState{}
+class UpdateReportSuccesful extends FeedbackState{}
+
+class DeletedReportState extends FeedbackState{}
+class DeleteFailedState extends FeedbackState{}

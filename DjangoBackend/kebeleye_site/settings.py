@@ -39,11 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
+<<<<<<< HEAD
+    'officialheads.apps.OfficialheadsConfig',
+    'announcements.apps.AnnouncementsConfig',
+    ''
+=======
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
     "corsheaders",
+>>>>>>> 75d83a21c627fef9ef74c0bdb6a98111801d98f2
 ]
 
 MIDDLEWARE = [

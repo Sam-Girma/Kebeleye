@@ -31,6 +31,9 @@ dependencies:
     sdk: flutter
   url_strategy: ^0.2.0
   go_router: ^3.0.6
+  flutter_html: ^2.2.1
+  driver_extensions: 
+  shared_preferences:
 
 
 
@@ -44,7 +47,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mockito: ^5.2.0
+  test:
+  fast_flutter_driver: ^2.0.0
 
+  
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
