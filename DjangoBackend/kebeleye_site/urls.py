@@ -9,10 +9,7 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 urlpatterns = [
-    # path('login/token/create/', TokenObtainPairView.as_view(),
-    #      name='toke_pair'),
-    # path('login/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    # path('login/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('login/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('login/token/create/', LoginUserAPIView.as_view(), name='login_token'),
     path('login/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('admin/', admin.site.urls),

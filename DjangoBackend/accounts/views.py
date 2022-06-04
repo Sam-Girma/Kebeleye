@@ -6,8 +6,10 @@ from rest_framework import generics, status
 from rest_framework import permissions
 from rest_framework import viewsets
 from rest_auth.views import LoginView
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.views import (
+
     TokenObtainPairView,
     TokenRefreshView,
     TokenVerifyView,
