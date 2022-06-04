@@ -8,17 +8,17 @@ import 'sent_report_screen.dart';
 import 'loginpage.dart';
 import 'officials_model_to_display_on_members_home_page.dart';
 import 'package:go_router/go_router.dart';
+<<<<<<< HEAD
+=======
 
-class MembersHomePage extends StatefulWidget {
-  const MembersHomePage({Key? key}) : super(key: key);
+class MembersHomePage extends StatelessWidget {
+>>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
 
-  @override
-  State<MembersHomePage> createState() => _MembersHomePageState();
-}
+
 
 List<bool> _showOfficials = [false, false, false, false, false];
 
-class _MembersHomePageState extends State<MembersHomePage> {
+
   List<String> departments = [
     "Kebele Head office",
     "Kebele Id office",
@@ -66,6 +66,7 @@ class _MembersHomePageState extends State<MembersHomePage> {
               ),
             ),
             GestureDetector(
+              key:Key('Gesture_detector_1'),
               onTap: () {
                 context.go('/responsescreen');
               },
@@ -143,9 +144,9 @@ class _MembersHomePageState extends State<MembersHomePage> {
                   itemBuilder: (context, position) {
                     return GestureDetector(
                       onTap: () {
-                        setState(() {
-                          _showOfficials[position] = !_showOfficials[position];
-                        });
+                        // setState(() {
+                        //   _showOfficials[position] = !_showOfficials[position];
+                        // });
                       },
                       child: departmentElements(position),
                     );
@@ -185,7 +186,11 @@ class _MembersHomePageState extends State<MembersHomePage> {
                     height: 250,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
+<<<<<<< HEAD
                         itemCount: officials.length,
+=======
+                        itemCount: officials.length, 
+>>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {

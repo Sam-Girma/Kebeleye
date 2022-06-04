@@ -17,6 +17,10 @@ import 'package:go_router/go_router.dart';
 void main() {
   setPathUrlStrategy();
   runApp(MyApp());
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
 }
 
 class MyApp extends StatelessWidget {
@@ -43,17 +47,29 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) =>
+<<<<<<< HEAD
             MembersHomePage(),
+=======
+        LoginPage(),
+      ),
+      GoRoute(
+        path: '/membershomepage',
+        builder: (BuildContext context, GoRouterState state) =>
+        MembersHomePage(),
+>>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
       ),
       GoRoute(
         path: '/loginofficials',
         builder: (BuildContext context, GoRouterState state) => LoginOfficial(),
       ),
       GoRoute(
+<<<<<<< HEAD
         path: '/loginpage',
         builder: (BuildContext context, GoRouterState state) => LoginPage(),
       ),
       GoRoute(
+=======
+>>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
         path: '/OfficialsHomePage',
         builder: (BuildContext context, GoRouterState state) =>
             OfficialsHomePage(),
@@ -74,7 +90,11 @@ class MyApp extends StatelessWidget {
             ResponseScreen(),
       ),
       GoRoute(
+<<<<<<< HEAD
         path: '/responsescreen',
+=======
+        path: '/memberseditaccount',
+>>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
         builder: (BuildContext context, GoRouterState state) =>
             MembersEditAccountScreen(),
       ),

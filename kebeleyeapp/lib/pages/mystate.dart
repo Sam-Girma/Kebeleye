@@ -10,6 +10,7 @@ import 'package:kebeleyeapp/pages/tosee_tosend_toreportpage.dart';
 import 'loginofficials.dart';
 import 'officialshomepage.dart';
 import 'members_home_page.dart';
+import 'package:go_router/go_router.dart';
 
 class mystate extends StatefulWidget {
   @override
@@ -21,8 +22,12 @@ class _mycurrentstate extends State<mystate> {
   void initState() {
     super.initState();
     Timer(const Duration(milliseconds: 4000), () {
+<<<<<<< HEAD
       Navigator.push(
           context, MaterialPageRoute(builder: (context) =>LoginPage()));
+=======
+      context.go("/");
+>>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
     });
   }
 

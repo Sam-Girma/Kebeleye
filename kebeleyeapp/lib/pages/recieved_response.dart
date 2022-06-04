@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-class ResponseScreen extends StatefulWidget {
-  const ResponseScreen({ Key? key }) : super(key: key);
+class ResponseScreen extends StatelessWidget {
 
-  @override
-  State<ResponseScreen> createState() => _ResponseScreenState();
-}
-
-class _ResponseScreenState extends State<ResponseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
