@@ -8,7 +8,7 @@ import 'login_signup_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final MembersRepository membersRepository;
   final OfficialRepository officialRepository;
-  AuthBloc(this.membersRepository, this.officialRepository)
+  AuthBloc({required this.membersRepository, required this.officialRepository})
       : super(LoginState()) {
     on<LoginScreenEvent>((LoginScreenEvent event, Emitter emit) {
       emit(LoginState());

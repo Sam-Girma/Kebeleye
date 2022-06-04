@@ -31,3 +31,4 @@ class SignupMemberEvent extends AuthEvent{
   final String password;
   SignupMemberEvent(this.username, this.password);
 }
+class GotoOfficialLoginEvent extends AuthEvent{}

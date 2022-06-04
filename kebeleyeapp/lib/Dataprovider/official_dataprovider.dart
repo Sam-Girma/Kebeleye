@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../models/officials.dart';
 
 class OfficialDataProvider{
-  static const String _baseUrl = "";
+  static const String _baseUrl = "http://127.0.0.1:8000/accounts/register/user/";
   OfficialDataProvider();
 
 Future<Official> create (String username, String department, String password) async {
@@ -19,9 +19,11 @@ Future<Official> create (String username, String department, String password) as
     }
   ));
 if (response.statusCode == 201){
+  print("official Created.");
   return Official.fromJson(jsonDecode(response.body));
 }
 {
+  
   throw Exception("Failed to create official");
 }
 

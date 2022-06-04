@@ -3,17 +3,17 @@ import 'package:http/http.dart';
 import 'package:equatable/equatable.dart';
 
 class Official extends Equatable{
-  Official({this.id, required this.officialName, required this.position,required this.offcialimageurl});
+  Official({this.id, required this.officialName, required this.department});
   String? id;
   String officialName;
-  String position;
-  String offcialimageurl;
+  String department;
+  
   
   @override
-List<Object> get props => [officialName,  position, offcialimageurl];
+List<Object> get props => [officialName,  department];
 
   factory Official.fromJson(Map<String, dynamic> json){
-    return Official(officialName: json['username'], position: json['position'], offcialimageurl: json['image']);
+    return Official(officialName: json['username'], department: json['department']);
   }
 
   

@@ -28,3 +28,5 @@ class SignupSuccesfulState extends AuthState{
 }
 class SignupFailedState extends AuthState{}
 
+class GotoOfficialLoginPageState extends AuthState{}
+
