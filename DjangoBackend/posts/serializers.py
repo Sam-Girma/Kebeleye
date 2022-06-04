@@ -4,17 +4,17 @@ from .models import Announcement, Feedback, Report
 
 class AnnouncementSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        modesl = Announcement
+        model = Announcement
         fields = '__all__'
 
 
 class FeedbackSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        modesl = Feedback
+        model = Feedback
         fields = '__all__'
 
 
 class ReportSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        modesl = Report
+        model = Report
         fields = '__all__'
