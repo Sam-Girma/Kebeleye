@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) =>
-        editofficialpost(),
+        MembersHomePage(),
       ),
       GoRoute(
         path: '/membershomepage',

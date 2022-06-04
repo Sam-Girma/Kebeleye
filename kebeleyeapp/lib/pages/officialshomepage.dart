@@ -30,78 +30,67 @@ class OfficialsHomePage extends StatelessWidget {
                       Container(
                         width: 500,
                         height: 300,
-                        margin: const EdgeInsets.only(top:8.0,bottom: 8.0),
-                         decoration: BoxDecoration(
-                        color: Colors.blue,
-                        
-                                  borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                                  )
-                                ),
+                        margin: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            )),
                       ),
                       Positioned(
                         top: 25,
                         left: 25,
-
                         child: Container(
-                      height: 240,
-                      width: 450,
-                      decoration: BoxDecoration(
-                        color: Colors.white,                        
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                                  )
-                                ),
+                          height: 240,
+                          width: 450,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              )),
                         ),
                       ),
                       Positioned(
                         top: 275,
                         left: 240,
                         child: Row(
-                          children: [  
-                            
-                            
+                          children: [
                             GestureDetector(
                               child: Container(
-                                child: Center(child: Text("Update"),),
+                                child: Center(
+                                  child: Text("Update"),
+                                ),
                                 decoration: BoxDecoration(
-                                 color: Colors.green,
-
-                                  borderRadius: BorderRadius.all(
-                        Radius.circular(8),
-                                  )
-                                ),
-                              margin: EdgeInsets.only(right:8.0),
-                                    height: 30,
-                                    width: 100,
-                                  ),
-                                  onTap: (){
-
-                                  },
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
+                                    )),
+                                margin: EdgeInsets.only(right: 8.0),
+                                height: 30,
+                                width: 100,
+                              ),
+                              onTap: () {
+                                context.go("/editofficialpost");
+                              },
                             ),
-
-                                GestureDetector(
-                                  child: Container(
-                                    child: Center(child: Text("Delete")),
-                                    decoration: BoxDecoration(
-                                 color: Colors.green,
-
-                                  borderRadius: BorderRadius.all(
-                        Radius.circular(8),
-                                  )
-                                ),
-                              margin: EdgeInsets.only(left:30.0),
-                                
-                                    height: 30,
-                                    width: 100,
-                                  ),
-                                  onTap: (){},
-                                ),
+                            GestureDetector(
+                              child: Container(
+                                child: Center(child: Text("Delete")),
+                                decoration: BoxDecoration(
+                                    color: Colors.green,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
+                                    )),
+                                margin: EdgeInsets.only(left: 30.0),
+                                height: 30,
+                                width: 100,
+                              ),
+                              onTap: () {},
+                            ),
                           ],
                         ),
                       )
-
-                  ],
+                    ],
                   ),
                 );
               },
