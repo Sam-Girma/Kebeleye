@@ -1,3 +1,5 @@
+import 'package:kebeleyeapp/models/models.dart';
+
 import '../Dataprovider/posts_data_provider.dart';
 import '../models/posts.dart';
 class PostRepository{
@@ -12,10 +14,10 @@ Future<Post> update(String postcontent, Post post) async{
   return dataProvider.update(postcontent, post);
 
 }
-Future<Future<Post>> fetchByOfficial(String official) async{
-  return dataProvider.fetchByOfficial(official);
+Future<List<Post>> fetchByuser(Official official) async{
+  return dataProvider.fetchByuser(official);
 }
-Future<void> delete(int id) async {
-  dataProvider.delete(id);
+Future<void> delete(Post post) async {
+  dataProvider.delete(post);
 }
 }

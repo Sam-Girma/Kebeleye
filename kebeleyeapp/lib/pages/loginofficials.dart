@@ -12,7 +12,6 @@ class LoginOfficial extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginOfficial> {
   bool isSignupScreen = true;
   bool isRememberme = false;
   bool isbscure = true;
@@ -252,9 +251,9 @@ class _LoginPageState extends State<LoginOfficial> {
             suffixIcon: ispassword
                 ? IconButton(
                     onPressed: () {
-                      setState(() {
-                        isbscure = !isbscure;
-                      });
+                      // setState(() {
+                      //   isbscure = !isbscure;
+                      // });
                     },
                     icon: Icon(
                         isbscure ? Icons.visibility_off : Icons.visibility))

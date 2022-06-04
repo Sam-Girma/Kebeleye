@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:kebeleyeapp/models/feedbacks.dart';
+import 'package:kebeleyeapp/models/members.dart';
 import '../repository/Feedback.dart';
 import '../models/feedbacks.dart';
 
@@ -12,13 +13,14 @@ class FeedbackDataProvider{
     throw UnimplementedError();
   }
 
-Future<Feedback> create (Feedback feedback) async {
+Future<Feedback> create(Feedback feedback) async {
   final http.Response response = await http.post(Uri.parse(_baseUrl),
   headers: <String, String> {"Content-Type": "application/json"},
   body: jsonEncode(
     {
       "feedbackcontent": feedback.feedbackcontent ,
-      "datetime": feedback.datetime,
+      "user": feedback.user,
+      "official":feedback.official,
     }
   ));
 if (response.statusCode == 201){
@@ -30,22 +32,27 @@ if (response.statusCode == 201){
 
 
 }
-Future<Feedback> fetchByboolian(bool isFeedback) async{
-  final response = await http.get(Uri.parse("$_baseUrl/$isFeedback"));
+Future<List<Feedback>> fetchFeedbackByuser(Member user) async{
+  final response = await http.get(Uri.parse(_baseUrl));
 
   if (response.statusCode == 200){
-    return Feedback.fromJson(jsonDecode(response.body));
+    final json = jsonDecode(response.body);
+      final Iterable list = json["post"];
+
+      return list.map((value) => Feedback.fromJson(value)).toList();
+    
   }
   else{
-    throw Exception("Fetching feedback failed.");
+    throw Exception("Fetching Feedback failed.");
   }
 }
 Future<Feedback> update(String feedbackcontent,Feedback feedback) async{
-  final response = await http.put(Uri.parse("$_baseUrl/$feedback"),
+  final response = await http.put(Uri.parse(_baseUrl),
   headers: <String, String>{"Content-Type": "application/json"},
   body: jsonEncode({
     "feedbackcontent": feedbackcontent,
-    "datetime": feedback.datetime,
+    "user": feedback.user,
+    "official": feedback.official,
 
 
   }));
@@ -57,8 +64,8 @@ Future<Feedback> update(String feedbackcontent,Feedback feedback) async{
   }
 }
 
-Future<void> delete(int id) async {
-  final response = await http.delete(Uri.parse("$_baseUrl/$id"));
+Future<void> delete(Feedback feedback) async {
+  final response = await http.delete(Uri.parse(_baseUrl));
   if (response.statusCode != 204){
     throw Exception("Deletion Failed.");
   }

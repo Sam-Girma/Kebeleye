@@ -6,18 +6,16 @@ abstract class HomePageState extends Equatable {
   List<Object> get props => [];
 }
 
-class CompressedState extends HomePageState {
-  //final String department;
-  CompressedState();
+class IdleHomepageState extends HomePageState{}
+class FetchingallOfficialsState extends HomePageState{}
+class OpeningOfficialDetailState extends HomePageState{}
+class FetchingOfficialsFailed extends HomePageState{}
+class FetchingPosts extends HomePageState{}
+class FetchingPostsSuccessful extends HomePageState{
+  final List posts;
+  FetchingPostsSuccessful(this.posts);
 }
+class OpenEditScreenState extends HomePageState{}
+class OpenFeedbackScreenState extends HomePageState{}
+class OpenreportsScreenState extends HomePageState{}
 
-class ExpandLoading extends HomePageState {}
-
-class ExpandedState extends HomePageState {
-  final List<Official> officials;
-  ExpandedState([this.officials = const []]);
-}
-
-class Expandedfailed extends HomePageState {
-  Expandedfailed(Object error);
-}

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:kebeleyeapp/models/models.dart';
 
 import '../models/posts.dart';
 
@@ -26,21 +27,13 @@ if (response.statusCode == 201){
 
 
 }
-Future<Post> fetchByboolian(bool is_post) async{
-  final response = await http.get(Uri.parse("$_baseUrl/$is_post"));
 
-  if (response.statusCode == 200){
-    return Post.fromJson(jsonDecode(response.body));
-  }
-  else{
-    throw Exception("Fetching posts failed.");
-  }
-}
-Future<Post> fetchByOfficial(String username) async{
+Future<List<Post>> fetchByuser(Official official) async{
   final response = await http.get(Uri.parse("$_baseUrl/$username"));
-
+  final Future<List> lists;
   if (response.statusCode == 200){
-    return Post.fromJson(jsonDecode(response.body));
+    return lists;
+    //Post.fromJson(jsonDecode(response.body));
   }
   else{
     throw Exception("Fetching posts failed.");
@@ -63,8 +56,8 @@ Future<Post> update(String postcontent,Post post) async{
   }
 }
 
-Future<void> delete(int kebeleid) async {
-  final response = await http.delete(Uri.parse("$_baseUrl/$kebeleid"));
+Future<void> delete(Post post) async {
+  final response = await http.delete(Uri.parse(_baseUrl));
   if (response.statusCode != 204){
     throw Exception("Deletion Failed.");
   }
