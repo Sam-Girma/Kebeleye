@@ -2,19 +2,19 @@ from rest_framework import serializers
 from .models import Announcement, Feedback, Report
 
 
-class AnnouncementSerializer(serializers.HyperlinkedModelSerializer):
+class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
-        modesl = Announcement
+        model = Announcement
         fields = '__all__'
 
 
-class FeedbackSerializer(serializers.HyperlinkedModelSerializer):
+class FeedbackSerializer(serializers.ModelSerializer):
     class Meta:
-        modesl = Feedback
+        model = Feedback
         fields = '__all__'
 
 
-class ReportSerializer(serializers.HyperlinkedModelSerializer):
+class ReportSerializer(serializers.ModelSerializer):
     class Meta:
-        modesl = Report
+        model = Report
         fields = '__all__'

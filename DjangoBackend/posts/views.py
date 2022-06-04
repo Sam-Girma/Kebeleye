@@ -12,36 +12,36 @@ from .permissions import IsOfficial, IsKebeleUser
 
 
 class AnnoucementsListView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
 
 
 class AnnoucementOfficialView(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, IsOfficial)
+    # permission_classes = (IsAuthenticated, IsOfficial)
     serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
 
 
 class FeedbacksListView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
 
 
 class FeedbackUserView(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, IsKebeleUser)
+    # permission_classes = (IsAuthenticated, IsKebeleUser)
     serializer_class = FeedbackSerializer
     queryset = Feedback.objects.all()
 
 
 class ReportsListView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
     serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
 
 
 class ReportUserView(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated, IsKebeleUser)
+    # permission_classes = (IsAuthenticated, IsKebeleUser)
     serializer_class = ReportSerializer
     queryset = Report.objects.all()
