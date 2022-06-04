@@ -38,6 +38,9 @@ class ReportBloc extends Bloc<ReportEvent, ReportState> {
       }
 
     });
+    on<ToupdateReportEvent>((ToupdateReportEvent event, Emitter emit)async{
+      emit(UpdateReportState(event.report));
+    });
     on<UpdateReportEvent>((UpdateReportEvent event, Emitter emit) async {
        emit(UpdatingReportState());
        try{

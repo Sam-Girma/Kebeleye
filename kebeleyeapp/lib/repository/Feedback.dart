@@ -1,3 +1,5 @@
+import 'package:kebeleyeapp/models/members.dart';
+
 import '../Dataprovider/feedback_data_provider.dart';
 import '../models/feedbacks.dart';
 class FeedbackRepository{
@@ -12,10 +14,10 @@ Future<Feedback> update(String feedbackcontent, Feedback feedback) async{
   return dataProvider.update(feedbackcontent, feedback);
 
 }
-Future<Future<Feedback>> fetchByboolian(bool is_feedback) async{
-  return dataProvider.fetchByboolian(is_feedback);
+Future<List<Feedback>> fetchFeedbackByuser(Member user) async{
+  return dataProvider.fetchFeedbackByuser(user);
 }
-Future<void> delete(int id) async {
-  dataProvider.delete(id);
+Future<void> delete(Feedback feedback) async {
+  dataProvider.delete(feedback);
 }
 }

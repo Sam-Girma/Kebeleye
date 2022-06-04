@@ -16,7 +16,7 @@ class NavBloc extends Bloc<BottomNavigationEvent, BottomNavigationState> {
       if (event.index == 0){
         emit(PageLoading());
         try{
-     final posts = await  postrepository.fetchByOfficial(event.kebeleid);
+     final posts = await  postrepository.fetchByuser(event.official);
      emit(PostPageLoaded());
   }
   catch(error){

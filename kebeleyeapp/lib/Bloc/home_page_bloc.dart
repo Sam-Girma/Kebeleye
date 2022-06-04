@@ -1,37 +1,52 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kebeleyeapp/pages/officials_model_to_display_on_members_home_page.dart';
-import '../repository/Official_repo.dart';
+import 'package:kebeleyeapp/repository/exporter.dart';
+import '../repository/Official_repository.dart';
 import 'home_page_event.dart';
 import 'home_page_state.dart';
 
 class HomepageBloc extends Bloc<HomePageEvent, HomePageState> {
   final OfficialRepository officialRepository;
+  final PostRepository postRepository;
 
-  HomepageBloc(this.officialRepository) : super(CompressedState()) {
+  HomepageBloc(this.officialRepository, this.postRepository) : super(FetchingallOfficialsState()) {
 
-    on<ExpandEvent>((ExpandEvent event, Emitter emit) async {
-  emit(ExpandLoading());
+  on<FetchallOfficialsEvent>((FetchallOfficialsEvent event, Emitter emit) async {
+  emit(FetchingallOfficialsState());
   try{
-     final officials = await  officialRepository.fetchByDepartment(event.department);
-     emit(ExpandedState());
+     final officials = await  officialRepository.fetchall();
+     emit(IdleHomepageState());
   }
   catch(error){
-    emit(Expandedfailed(error));
+    emit(FetchingOfficialsFailed());
   }
 
   //final Official retrived = _loading()
 });
 
-    on<CompressEvent>(_onCompress);
+   on<OpenOfficialPageEvent>((OpenOfficialPageEvent event, Emitter emit){
+     emit(OpeningOfficialDetailState());
+
+
+   });
+   on<FetchOfficialPostsEvent>((FetchOfficialPostsEvent event, Emitter emit)async{
+     emit(FetchingPosts());
+     final posts = await postRepository.fetchByuser(event.official);
+     emit(FetchingPostsSuccessful(posts));
+   });
+   on<OpenEditScreenEvent> ((OpenEditScreenEvent event, Emitter emit){
+     emit(OpenEditScreenState());
+   });
+   on<OpenFeedbackEvent>((OpenFeedbackEvent event, Emitter emit){
+     emit(OpenFeedbackScreenState());
+   });
+   on<OpenreportsEvent>((OpenreportsEvent event, Emitter emit){
+     emit(OpenreportsScreenState());
+   });
+
   }
 }
 
 
-void _onCompress(CompressEvent event, Emitter emit){
-  emit(CompressedState());
-}
 
-void _loading(){
-
-}
 

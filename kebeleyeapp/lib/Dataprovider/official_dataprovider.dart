@@ -27,7 +27,7 @@ if (response.statusCode == 201){
 
 
 }
-Future<Official> fetchByDepartment(String position) async{
+Future<List<Official>> fetchall() async{
   final response = await http.get(Uri.parse(_baseUrl));
 
   if (response.statusCode == 200){

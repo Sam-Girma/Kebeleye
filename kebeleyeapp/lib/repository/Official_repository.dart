@@ -12,8 +12,8 @@ Future<Official> update(String username, Official official) async{
   return dataProvider.update(username, official);
 
 }
-Future<Future<Official>> fetchByDepartment(String position) async{
-  return dataProvider.fetchByDepartment(position);
+Future<List<Official>> fetchall() async{
+  return dataProvider.fetchall();
 }
 Future<void> delete(int id) async {
   dataProvider.delete(id);

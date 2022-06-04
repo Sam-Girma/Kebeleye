@@ -22,6 +22,10 @@ class MemberReportsFetchEvent extends ReportEvent{
   final Member user;
   MemberReportsFetchEvent(this.user);
 }
+class ToupdateReportEvent extends ReportEvent{
+  final Report report;
+  ToupdateReportEvent(this.report);
+}
 class UpdateReportEvent extends ReportEvent{
   final String postcontent;
   final Report report;

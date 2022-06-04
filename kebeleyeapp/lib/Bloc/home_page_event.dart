@@ -1,28 +1,27 @@
 import 'package:equatable/equatable.dart';
+import 'package:kebeleyeapp/models/models.dart';
 
-abstract class HomePageEvent extends Equatable{}
-
-class ExpandEvent extends HomePageEvent{
-  final String department;
-  ExpandEvent(this.department);
-
+abstract class HomePageEvent extends Equatable{
   @override
-  // TODO: implement props
+  
   List<Object?> get props => throw UnimplementedError();
+}
 
+class FetchallOfficialsEvent extends HomePageEvent{
   
 }
 class OpenOfficialPageEvent extends HomePageEvent{
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-  
+ 
+}
+class SearchEvent extends HomePageEvent{
 
 }
-class CompressEvent extends HomePageEvent{
-  CompressEvent();
+class OpenreportsEvent extends HomePageEvent{}
+class OpenFeedbackEvent extends HomePageEvent{}
+class OpenEditScreenEvent extends HomePageEvent{}
+class LogooutEvent extends HomePageEvent{}
 
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+class FetchOfficialPostsEvent extends HomePageEvent{
+  final Official official;
+  FetchOfficialPostsEvent(this.official);
 }

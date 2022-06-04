@@ -1,3 +1,4 @@
+import 'package:kebeleyeapp/models/models.dart';
 import 'package:meta/meta.dart';
 import 'package:equatable/equatable.dart';
 
@@ -10,9 +11,9 @@ abstract class BottomNavigationEvent extends Equatable {
 
 class Changepage extends BottomNavigationEvent {
   final int index;
-  final String kebeleid;
+  final Official official;
 
-  Changepage({required this.index, required this.kebeleid});
+  Changepage({required this.index, required this.official});
 
   @override
   String toString() => 'PageTapped: $index';

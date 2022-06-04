@@ -18,7 +18,10 @@ class FetchingReportSuccessful extends ReportState{
   final List<Report> reports;
   FetchingReportSuccessful(this.reports);
 }
-class UpdateReportState extends ReportState{}
+class UpdateReportState extends ReportState{
+  final Report report;
+  UpdateReportState(this.report);
+}
 class UpdateFailedState extends ReportState{}
 class UpdatingReportState extends ReportState{}
 class UpdateReportSuccesful extends ReportState{}

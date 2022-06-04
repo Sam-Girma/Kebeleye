@@ -12,16 +12,19 @@ class ClearedFeedbackState extends FeedbackState{}
 class FeedbackingState extends FeedbackState{}
 class FeedbackSuccessful extends FeedbackState{}
 class FeedbackFailedState extends FeedbackState{}
-class FetchingFeecbackState extends FeedbackState{}
+class FetchingFeedbackState extends FeedbackState{}
 class FetchingFeedbackFailed extends FeedbackState{}
 class FetchingFeedbackSuccessful extends FeedbackState{
-  final List<Report> reports;
-  FetchingFeedbackSuccessful(this.reports);
+  final List<Feedback> feedback;
+  FetchingFeedbackSuccessful(this.feedback);
 }
-class UpdateFeedbackState extends FeedbackState{}
-class UpdatefeedbackFailedState extends FeedbackState{}
-class UpdatingFeedbackReportState extends FeedbackState{}
+class UpdateFeedbackState extends FeedbackState{
+  final Feedback feedback;
+  UpdateFeedbackState(this.feedback);
+}
+class UpdateFeedbackFailedState extends FeedbackState{}
+class UpdatingFeedbackState extends FeedbackState{}
 class UpdateFeedbackSuccesful extends FeedbackState{}
 
 class DeletedFeedbackState extends FeedbackState{}
-class DeleteFailedState extends FeedbackState{}
+class DeleteFeedbackFailedState extends FeedbackState{}

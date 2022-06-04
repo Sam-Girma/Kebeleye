@@ -22,12 +22,16 @@ class MembersFeedbackFetchEvent extends FeedbackEvent{
   final Member user;
   MembersFeedbackFetchEvent(this.user);
 }
+class ToupdateFeedbackEvent extends FeedbackEvent{
+  final Feedback feedback;
+  ToupdateFeedbackEvent(this.feedback);
+}
 class UpdateFeedbackEvent extends FeedbackEvent{
-  final String postcontent;
-  final Report feedback;
-  UpdateFeedbackEvent(this.postcontent, this.feedback);
+  final String feedbackcontent;
+  final Feedback feedback;
+  UpdateFeedbackEvent(this.feedbackcontent, this.feedback);
 }
 class DeleteFeedbackEvent extends FeedbackEvent{
-  final Report feedback;
+  final Feedback feedback;
   DeleteFeedbackEvent(this.feedback);
 }
