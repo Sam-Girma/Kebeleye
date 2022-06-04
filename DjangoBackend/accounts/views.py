@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 from rest_framework.response import Response
 from accounts.models import Account
@@ -34,10 +35,24 @@ from rest_framework_simplejwt.views import (
 class RegisterUserView(generics.GenericAPIView):
 
     serializer_class = RegisterUserSerializer
+=======
+from pstats import Stats
+from django.shortcuts import render
+from rest_framework import generics, status
+from .serializers import RegisterSerializer
+from rest_framework.response import Response
+# Create your views here.
+
+
+class RegisterView(generics.GenericAPIView):
+
+    serializer_class = RegisterSerializer
+>>>>>>> main
 
     def post(self, request):
         user = request.data
         serializer = self.serializer_class(data=user)
+<<<<<<< HEAD
         if serializer.is_valid():
             user_data = serializer.validated_data
             serializer.save()
@@ -152,3 +167,10 @@ class AccountViewSet(viewsets.ModelViewSet):
 class LoginUserAPIView(TokenObtainPairView):
     serializer_class = LoginUserSerializer
 >>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
+=======
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        user_data = serializer.data
+        return Response(user_data, status=status.HTTP_201_CREATED)
+>>>>>>> main

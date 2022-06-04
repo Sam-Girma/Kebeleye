@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from pyexpat import model
 import re
 from wsgiref import validate
@@ -20,11 +21,21 @@ class AccountSerializer(serializers.ModelSerializer):
 
 
 class RegisterUserSerializer(serializers.ModelSerializer):
+=======
+from asyncore import write
+from unittest.util import _MAX_LENGTH
+from rest_framework import serializers
+from .models import Account
+
+
+class RegisterSerializer(serializers.ModelSerializer):
+>>>>>>> main
     password = serializers.CharField(
         max_length=70, min_length=6, write_only=True)
 
     class Meta:
         model = Account
+<<<<<<< HEAD
         fields = ['username', 'username_name',
                   'password', 'is_official', 'department']
 
@@ -34,10 +45,22 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         if not re.match(alphaSpaces, username_name):
             raise serializers.ValidationError(
                 'The username should only contain alpha characters.')
+=======
+        fields = ['username', 'user_id', 'password']
+
+    def validate(self, attrs):
+        username = attrs.get('username', '')
+        user_id = attrs.get('user_id', '')
+
+        if not username.isalnum():
+            raise serializers.ValidationError(
+                'The username should only contain alphanumeric characters.')
+>>>>>>> main
         return attrs
 
     def create(self, validated_data):
         return Account.objects.create_user(**validated_data)
+<<<<<<< HEAD
 
 
 class UserDetailsSerializer(serializers.ModelSerializer):
@@ -157,3 +180,5 @@ class LoginUserSerializer(TokenObtainPairSerializer):
         else:
             raise serializers.ValidationError('Account is not here')
 >>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
+=======
+>>>>>>> main

@@ -23,7 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 'django-insecure-j^-zp^x$)i=j__z@65!ik#5=9wc^j&2&k*s_#(e#61&d$4+pd&'
+=======
+SECRET_KEY = 'django-insecure-2&iz+825b@+_)#w3%8ug!alz=#ig76(_guy(gdlm7^_(3)gmif'
+>>>>>>> main
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
+<<<<<<< HEAD
     'posts.apps.PostsConfig',
     'rest_framework',
     'rest_framework_simplejwt',
@@ -50,6 +55,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+=======
+    'rest_framework',
+>>>>>>> main
 ]
 
 MIDDLEWARE = [
@@ -89,7 +97,11 @@ WSGI_APPLICATION = 'kebeleye_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+<<<<<<< HEAD
         'NAME': 'KebeleNew',
+=======
+        'NAME': 'KebeleSite',
+>>>>>>> main
         'USER': 'postgres',
         'PASSWORD': 'eyAsuc@su1',
         'HOST': '127.0.0.1',
@@ -107,6 +119,7 @@ REST_FRAMEWORK = {
 }
 
 
+<<<<<<< HEAD
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=10),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=20),
@@ -143,6 +156,8 @@ SIMPLE_JWT = {
 #     'TOKEN_SERIALIZER': 'path.to.custom.TokenSerializer',
 #     'REGISTER_SERIALIZER': 'accounts.serializers.RegisterUserSerializer',
 # }
+=======
+>>>>>>> main
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -183,6 +198,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 
+<<<<<<< HEAD
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -383,3 +399,6 @@ AUTH_USER_MODEL = "accounts.Account"
 
 CORS_ALLOW_ALL_ORIGINS = True
 >>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
+=======
+AUTH_USER_MODEL = "accounts.Account"
+>>>>>>> main

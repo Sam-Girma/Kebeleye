@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django import urls
 from django.urls import include, path
 
@@ -31,3 +32,12 @@ urlpatterns = [
     path('api/', include((router.urls, 'app_name'), namespace='instance_name'))
 ]
 >>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
+=======
+from django.urls import path
+from .views import RegisterView
+
+urlpatterns = [
+    path('register/kebeleuser', RegisterView.as_view(), name="register"),
+    path('register/kebeleofficial', RegisterView.as_view(), name="register")
+]
+>>>>>>> main
