@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kebeleyeapp/pages/Admin%20Pages/AccountsTobeVerified.dart';
 import 'package:kebeleyeapp/pages/Admin%20Pages/VerifiedAccounts.dart';
+import 'package:kebeleyeapp/pages/edit_officials_post.dart';
 import 'package:kebeleyeapp/pages/loginofficials.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:kebeleyeapp/pages/members_edit_account_page.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (BuildContext context, GoRouterState state) =>
-        LoginPage(),
+        editofficialpost(),
       ),
       GoRoute(
         path: '/membershomepage',
@@ -95,6 +96,11 @@ class MyApp extends StatelessWidget {
         path: '/verifiedaccount',
         builder: (BuildContext context, GoRouterState state) =>
             VerifiedAccounts(),
+      ),
+       GoRoute(
+        path: '/editofficialpost',
+        builder: (BuildContext context, GoRouterState state) =>
+            editofficialpost(),
       ),
     ],
   );
