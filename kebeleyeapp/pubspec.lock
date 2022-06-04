@@ -169,8 +169,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
-<<<<<<< HEAD
-=======
   dart_style:
     dependency: transitive
     description:
@@ -185,7 +183,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0+1"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   equatable:
     dependency: "direct main"
     description:
@@ -247,8 +244,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.1"
-<<<<<<< HEAD
-=======
   flutter_driver:
     dependency: transitive
     description: flutter
@@ -268,7 +263,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.6"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -300,8 +294,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-<<<<<<< HEAD
-=======
   frontend_server_client:
     dependency: transitive
     description:
@@ -321,7 +313,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   go_router:
     dependency: "direct main"
     description:
@@ -329,8 +320,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
-<<<<<<< HEAD
-=======
   html:
     dependency: transitive
     description:
@@ -338,7 +327,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.15.0"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   http:
     dependency: "direct main"
     description:
@@ -346,8 +334,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.4"
-<<<<<<< HEAD
-=======
   http_multi_server:
     dependency: transitive
     description:
@@ -355,7 +341,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.2.0"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   http_parser:
     dependency: transitive
     description:
@@ -363,8 +348,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
-<<<<<<< HEAD
-=======
   io:
     dependency: transitive
     description:
@@ -372,7 +355,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   js:
     dependency: transitive
     description:
@@ -415,8 +397,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.0"
-<<<<<<< HEAD
-=======
   mime:
     dependency: transitive
     description:
@@ -431,7 +411,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.2.0"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   nested:
     dependency: transitive
     description:
@@ -439,8 +418,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-<<<<<<< HEAD
-=======
   node_preamble:
     dependency: transitive
     description:
@@ -462,7 +439,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   path:
     dependency: transitive
     description:
@@ -470,8 +446,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-<<<<<<< HEAD
-=======
   path_drawing:
     dependency: transitive
     description:
@@ -549,7 +523,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.3+2"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   provider:
     dependency: transitive
     description:
@@ -557,8 +530,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.3"
-<<<<<<< HEAD
-=======
   pub_semver:
     dependency: transitive
     description:
@@ -657,7 +628,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   sky_engine:
     dependency: transitive
     description: flutter
@@ -945,8 +915,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.16.1 <3.0.0"
-<<<<<<< HEAD
-  flutter: ">=2.0.0"
-=======
   flutter: ">=2.10.0"
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116

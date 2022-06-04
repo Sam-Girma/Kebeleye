@@ -1,7 +1,8 @@
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 
-class Post extends Equatable {
+class Post extends Equatable{
   String postcontent;
   String datetime;
   bool? is_report = false;
@@ -12,8 +13,11 @@ class Post extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
-
-  factory Post.fromJson(Map<String, dynamic> json) {
+  
+  factory Post.fromJson(Map<String, dynamic> json){
     return Post(postcontent: json['postcontent'], datetime: json['datetime']);
   }
+
 }
+
+

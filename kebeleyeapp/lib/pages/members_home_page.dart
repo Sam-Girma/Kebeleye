@@ -8,11 +8,8 @@ import 'sent_report_screen.dart';
 import 'loginpage.dart';
 import 'officials_model_to_display_on_members_home_page.dart';
 import 'package:go_router/go_router.dart';
-<<<<<<< HEAD
-=======
 
 class MembersHomePage extends StatelessWidget {
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
 
 
 
@@ -186,11 +183,7 @@ List<bool> _showOfficials = [false, false, false, false, false];
                     height: 250,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-<<<<<<< HEAD
-                        itemCount: officials.length,
-=======
                         itemCount: officials.length, 
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {

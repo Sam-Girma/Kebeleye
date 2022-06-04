@@ -22,12 +22,7 @@ class _mycurrentstate extends State<mystate> {
   void initState() {
     super.initState();
     Timer(const Duration(milliseconds: 4000), () {
-<<<<<<< HEAD
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) =>LoginPage()));
-=======
       context.go("/");
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
     });
   }
 

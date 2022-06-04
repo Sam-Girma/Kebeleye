@@ -3,17 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/settings.dart';
 
-<<<<<<< HEAD
-class OfficialsHomePage extends StatefulWidget {
-  @override
-  State<OfficialsHomePage> createState() => _OfficialsHomePageState();
-}
-
-class _OfficialsHomePageState extends State<OfficialsHomePage> {
-=======
 class OfficialsHomePage extends StatelessWidget {
 
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
   List colors = [Colors.purple, Colors.grey.shade900];
   final _userfeedback = [
     "feedback1",
@@ -31,11 +22,7 @@ class OfficialsHomePage extends StatelessWidget {
       ListView.builder(
         itemCount: _userfeedback.length,
         itemBuilder: (context, index) {
-<<<<<<< HEAD
-          return Flexible(
-=======
           return Container(
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
             child: (Container(
               height: 400,
               margin: EdgeInsets.all(20), // add margin
@@ -52,11 +39,7 @@ class OfficialsHomePage extends StatelessWidget {
       ListView.builder(
         itemCount: _userfeedback.length,
         itemBuilder: (context, index) {
-<<<<<<< HEAD
-          return Flexible(
-=======
           return Container(
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
             child: (Container(
               height: 400,
               margin: EdgeInsets.all(20), // add margin
@@ -222,13 +205,9 @@ class OfficialsHomePage extends StatelessWidget {
                   TextStyle(color: Colors.black ),
             ),
           ),
-<<<<<<< HEAD
-          Flexible(
-=======
           Container(
             height: 300,
             width: 100,
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
               child: Padding(
             padding: EdgeInsets.all(30),
             child: TextField(
@@ -356,28 +335,7 @@ class OfficialsHomePage extends StatelessWidget {
               );
             },
           ),
-<<<<<<< HEAD
-          // ListTile(
-          //   leading: Icon(Icons.sunny,
-          //       color: colindex == 0 ? Colors.purple : Colors.white),
-          //   title: Text(
-          //     "dark mode",
-          //     style: TextStyle(
-          //         color: colindex == 0 ? Colors.purple : Colors.white),
-          //   ),
-          //   onTap: () {
-          //     setState(() {
-          //       if (colindex == 1) {
-          //         colindex = 0;
-          //       } else {
-          //         colindex = 1;
-          //       }
-          //     });
-          //   },
-          // ),
-=======
           
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
           ListTile(
             leading: Icon(Icons.logout,
                 color: Colors.purple),
@@ -401,15 +359,9 @@ class OfficialsHomePage extends StatelessWidget {
         iconSize: 30,
         type: BottomNavigationBarType.fixed,
         currentIndex: navindex,
-<<<<<<< HEAD
-        onTap: (int index) => setState(() {
-          navindex = index;
-        }),
-=======
         // onTap: (int index) => setState(() {
         //   navindex = index;
         // }),
->>>>>>> 5eca5152dcd6ed15351c561f78038ce554862116
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.message), label: "announcments"),

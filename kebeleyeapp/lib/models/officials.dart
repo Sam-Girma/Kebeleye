@@ -2,26 +2,21 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
 import 'package:equatable/equatable.dart';
 
-class Official extends Equatable {
-  Official(
-      {this.id,
-      required this.officialName,
-      required this.position,
-      required this.offcialimageurl});
+class Official extends Equatable{
+  Official({this.id, required this.officialName, required this.position,required this.offcialimageurl});
   String? id;
   String officialName;
   String position;
   String offcialimageurl;
-
+  
   @override
-  List<Object> get props => [officialName, position, offcialimageurl];
+List<Object> get props => [officialName,  position, offcialimageurl];
 
-  factory Official.fromJson(Map<String, dynamic> json) {
-    return Official(
-        officialName: json['username'],
-        position: json['position'],
-        offcialimageurl: json['image']);
+  factory Official.fromJson(Map<String, dynamic> json){
+    return Official(officialName: json['username'], position: json['position'], offcialimageurl: json['image']);
   }
+
+  
 }
 
 

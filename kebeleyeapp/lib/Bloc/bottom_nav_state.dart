@@ -9,19 +9,26 @@ abstract class BottomNavigationState extends Equatable {
   List<Object?> get props => throw UnimplementedError();
 }
 
-class CurrentIndexChanged extends BottomNavigationState {}
+class CurrentIndexChanged extends BottomNavigationState {
+ 
+}
 
-class PageLoading extends BottomNavigationState {}
+class PageLoading extends BottomNavigationState {
+ 
+}
 
 class PostPageLoaded extends BottomNavigationState {
   final List posts;
   PostPageLoaded({this.posts = const []});
+  
 }
 
-class FeedbackpageLoaded extends BottomNavigationState {}
+class FeedbackpageLoaded extends BottomNavigationState {
+  
+}
+class ReportPageLoaded extends BottomNavigationState{
 
-class ReportPageLoaded extends BottomNavigationState {}
-
-class Loadfailed extends BottomNavigationState {
+}
+class Loadfailed extends BottomNavigationState{
   Loadfailed(Object error);
 }
