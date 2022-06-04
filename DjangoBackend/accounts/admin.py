@@ -1,15 +1,16 @@
+from email.headerregistry import Group
 from django.contrib import admin
 
-# Register your models here.
 from . import models
 
 
 class UserAdmin(admin.ModelAdmin):
     list_display = (
         "username",
-        "user_id",
-        "is_staff",
+        "username_name",
+        'is_admin',
         "is_superuser",
+        'is_official',
     )
 
 

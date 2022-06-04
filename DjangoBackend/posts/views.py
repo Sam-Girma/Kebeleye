@@ -1,24 +1,47 @@
-from msilib.schema import ServiceInstall
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
-from posts.models import Post
-from .serializers import PostSerializer
+from posts.serializers import AnnouncementSerializer, FeedbackSerializer, ReportSerializer
+from rest_framework.permissions import IsAuthenticated
+# Create your views here.
+from posts.models import Feedback
+from posts.models import Announcement
+from posts.models import Report
+###########################################
+from rest_framework import viewsets
+from rest_framework import generics
+from django.core.exceptions import PermissionDenied
+from .permissions import IsOfficial, IsKebeleUser
 
 
-@api_view(['GET'])
-def getpost(request):
-    post_fields = Post.objects.all()
-    serializer = PostSerializer(post_fields, many=True)
-    return Response(serializer.data)
+class AnnoucementsListView(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = AnnouncementSerializer
+    queryset = Announcement.objects.all()
 
 
-@api_view(['POST'])
-def createpost(request):
-    serializer = PostSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
+class AnnoucementOfficialView(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, IsOfficial)
+    serializer_class = AnnouncementSerializer
+    queryset = Announcement.objects.all()
 
 
-@api_view(['PUT'])
-def updatepost(request):
+class FeedbacksListView(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = AnnouncementSerializer
+    queryset = Announcement.objects.all()
+
+
+class FeedbackUserView(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, IsKebeleUser)
+    serializer_class = FeedbackSerializer
+    queryset = Feedback.objects.all()
+
+
+class ReportsListView(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = AnnouncementSerializer
+    queryset = Announcement.objects.all()
+
+
+class ReportUserView(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated, IsKebeleUser)
+    serializer_class = ReportSerializer
+    queryset = Report.objects.all()

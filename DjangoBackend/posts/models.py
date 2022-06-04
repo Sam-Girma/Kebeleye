@@ -1,13 +1,32 @@
 from django.db import models
+
 from accounts.models import Account
+
 # Create your models here.
 
 
-class Post(models.Model):
-    post = models.CharField(max_length=1000)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+class Announcement(models.Model):
+    post = models.CharField(max_length=10000)
+    official = models.ForeignKey(Account, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_announcement = models.BooleanField(default=False)
-    is_report = models.BooleanField(default=False)
-    is_feedback = models.BooleanField(default=False)
+
+
+class Feedback(models.Model):
+    post = models.CharField(max_length=10000)
+    user = models.ForeignKey(
+        Account, related_name="userswithfeedbacks", on_delete=models.CASCADE, max_length=255, null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    official = models.ForeignKey(
+        Account, related_name="officialswithfeedbacks", on_delete=models.CASCADE, null=False)
+
+
+class Report(models.Model):
+    post = models.CharField(max_length=10000)
+    user = models.ForeignKey(
+        Account, related_name="userswithreports", on_delete=models.CASCADE, null=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    official = models.ForeignKey(
+        Account, related_name="officialsreported", on_delete=models.CASCADE, null=False)
