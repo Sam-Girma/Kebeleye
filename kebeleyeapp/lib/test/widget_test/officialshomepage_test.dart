@@ -39,13 +39,6 @@ void main() {
     expect(find.text("hi_there"), findsNWidgets(3));
 
 
-    // expect(find.byType(Icons), findsNWidgets(4));
-      // await driver.waitFor(find.byValueKey('bottom'));
-
-    // await tester.enterText(find.byType(TextField), 'hi_there');
-    // expect(find.text("hi_there"), findsOneWidget);
-    // expect(find.byType(GestureDetector), findsNWidgets(9));
-    // await tester.tap(find.byKey(testkey));
     
 
   }
