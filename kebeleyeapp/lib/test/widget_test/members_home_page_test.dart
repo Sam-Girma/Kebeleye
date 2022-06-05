@@ -2,11 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kebeleyeapp/pages/loginpage.dart';
-import 'package:kebeleyeapp/pages/members_home_page.dart';
-import 'package:kebeleyeapp/pages/official_edit_.dart';
-import 'package:flutter_driver/driver_extension.dart';
+
 import 'package:fast_flutter_driver/tool.dart';
+
+import '../../presentation/core/members_home_page.dart';
 
 void main() {
   Widget makeTestableWidget({required Widget child}) {
@@ -18,7 +17,7 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     const testkey = Key("Gesture_detector_1");
 
-    await tester.pumpWidget(MaterialApp(key:testkey,home: MembersHomePage()));
+    await tester.pumpWidget(MaterialApp(key: testkey, home: MembersHomePage()));
 
     expect(find.byKey(testkey), findsOneWidget);
 
@@ -27,8 +26,5 @@ void main() {
     expect(find.text("hi_there"), findsOneWidget);
     expect(find.byType(GestureDetector), findsNWidgets(9));
     await tester.tap(find.byKey(testkey));
-    
-
-  }
-  );
+  });
 }

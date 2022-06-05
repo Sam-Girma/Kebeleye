@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kebeleyeapp/pages/Admin%20Pages/AccountsTobeVerified.dart';
-import 'package:kebeleyeapp/pages/loginpage.dart';
+
+import '../../presentation/Admin Pages/AccountsTobeVerified.dart';
 
 void main() {
   Widget makeTestableWidget({required Widget child}) {
@@ -12,7 +12,5 @@ void main() {
 
   testWidgets('', (WidgetTester tester) async {
     await tester.pumpWidget(makeTestableWidget(child: AccountsToBeVerified()));
-
-  }
-  );
+  });
 }

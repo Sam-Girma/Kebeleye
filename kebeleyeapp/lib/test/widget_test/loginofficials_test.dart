@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kebeleyeapp/pages/loginofficials.dart';
-import 'package:kebeleyeapp/pages/loginpage.dart';
-import 'package:kebeleyeapp/pages/official_edit_.dart';
+
+import '../../presentation/auth/loginofficials.dart';
 
 void main() {
   Widget makeTestableWidget({required Widget child}) {
@@ -19,7 +18,5 @@ void main() {
     expect(find.byType(TextField), findsNWidgets(4));
     expect(find.byType(TextButton), findsNWidgets(1));
     await tester.tap(find.byType(RaisedButton));
-
-  }
-  );
+  });
 }

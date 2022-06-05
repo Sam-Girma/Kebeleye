@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:kebeleyeapp/pages/Admin%20Pages/AccountsTobeVerified.dart';
-import 'package:kebeleyeapp/pages/Admin%20Pages/VerifiedAccounts.dart';
-import 'package:kebeleyeapp/pages/loginofficials.dart';
-import 'package:kebeleyeapp/pages/loginpage.dart';
-import 'package:kebeleyeapp/pages/members_edit_account_page.dart';
-import 'package:kebeleyeapp/pages/members_home_page.dart';
-import 'package:kebeleyeapp/pages/mystate.dart';
-import 'package:kebeleyeapp/pages/officialshomepage.dart';
-
-import 'package:kebeleyeapp/pages/sent_feedback_Screen.dart';
-import 'package:kebeleyeapp/pages/sent_report_screen.dart';
-import 'package:kebeleyeapp/pages/official_edit_.dart';
+import 'package:kebeleyeapp/presentation/edits/members_edit_account_page.dart';
+import 'package:kebeleyeapp/presentation/Admin%20Pages/AccountsTobeVerified.dart';
+import 'package:kebeleyeapp/presentation/Admin%20Pages/VerifiedAccounts.dart';
+import 'package:kebeleyeapp/presentation/auth/loginofficials.dart';
+import 'package:kebeleyeapp/presentation/auth/loginpage.dart';
+import 'package:kebeleyeapp/presentation/core/members_home_page.dart';
+import 'package:kebeleyeapp/presentation/core/officialshomepage.dart';
+import 'package:kebeleyeapp/presentation/edits/official_edit_.dart';
+import 'package:kebeleyeapp/presentation/posts_list/sent_feedback_Screen.dart';
+import 'package:kebeleyeapp/presentation/posts_list/sent_report_screen.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:go_router/go_router.dart';
 
 void main() {
   setPathUrlStrategy();
   runApp(MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -32,8 +29,6 @@ class MyApp extends StatelessWidget {
       title: 'Login design',
       theme: ThemeData(
         appBarTheme: AppBarTheme(color: Color.fromARGB(255, 96, 95, 235)),
-        
-        
         primarySwatch: Colors.blue,
       ),
     );
@@ -43,13 +38,12 @@ class MyApp extends StatelessWidget {
     routes: <GoRoute>[
       GoRoute(
         path: '/',
-        builder: (BuildContext context, GoRouterState state) =>
-        LoginPage(),
+        builder: (BuildContext context, GoRouterState state) => LoginPage(),
       ),
       GoRoute(
         path: '/membershomepage',
         builder: (BuildContext context, GoRouterState state) =>
-        MembersHomePage(),
+            MembersHomePage(),
       ),
       GoRoute(
         path: '/loginofficials',
@@ -70,11 +64,12 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, GoRouterState state) =>
             SentFeedbackScreen(),
       ),
-      
       GoRoute(
         path: '/memberseditaccount',
         builder: (BuildContext context, GoRouterState state) =>
-            MembersEditAccountScreen(colindex: 0,),
+            MembersEditAccountScreen(
+          colindex: 0,
+        ),
       ),
       GoRoute(
         path: '/setting',

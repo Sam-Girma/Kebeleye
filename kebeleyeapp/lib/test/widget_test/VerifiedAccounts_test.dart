@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:kebeleyeapp/pages/loginpage.dart';
+
+import '../../presentation/auth/loginpage.dart';
 
 void main() {
   Widget makeTestableWidget({required Widget child}) {
@@ -12,7 +13,5 @@ void main() {
   testWidgets('', (WidgetTester tester) async {
     await tester.pumpWidget(makeTestableWidget(child: LoginPage()));
     // await tester.enterText(find.byType(TextFormField), 'hi');
-
-  }
-  );
+  });
 }
