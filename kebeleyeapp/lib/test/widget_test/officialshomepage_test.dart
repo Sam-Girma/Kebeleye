@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:kebeleyeapp/pages/members_home_page.dart';
 import 'package:kebeleyeapp/pages/officialshomepage.dart';
-import 'package:kebeleyeapp/pages/settings.dart';
+import 'package:kebeleyeapp/pages/official_edit_.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:fast_flutter_driver/tool.dart';
 

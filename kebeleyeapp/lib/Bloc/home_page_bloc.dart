@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kebeleyeapp/pages/officials_model_to_display_on_members_home_page.dart';
 import 'package:kebeleyeapp/repository/exporter.dart';
 import '../repository/Official_repository.dart';
 import 'home_page_event.dart';
@@ -15,7 +14,7 @@ class HomepageBloc extends Bloc<HomePageEvent, HomePageState> {
   emit(FetchingallOfficialsState());
   try{
      final officials = await  officialRepository.fetchall();
-     emit(IdleHomepageState());
+     emit(IdleHomepageState(officials));
   }
   catch(error){
     emit(FetchingOfficialsFailed());

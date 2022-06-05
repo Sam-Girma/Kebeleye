@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kebeleyeapp/Bloc/bloc.dart';
+import 'package:kebeleyeapp/Dataprovider/dataproviders.dart';
+import 'package:kebeleyeapp/models/models.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:kebeleyeapp/pages/tosee_tosend_toreportpage.dart';
+import 'package:kebeleyeapp/repository/exporter.dart';
+import '../repository/Official_repository.dart';
 import 'members_edit_account_page.dart';
 import 'recieved_response.dart';
 import 'sent_feedback_Screen.dart';
 import 'sent_report_screen.dart';
 import 'loginpage.dart';
-import 'officials_model_to_display_on_members_home_page.dart';
+
 import 'package:go_router/go_router.dart';
 
 class MembersHomePage extends StatelessWidget {
 
-
-
-List<bool> _showOfficials = [false, false, false, false, false];
-
+  final homepagebloc = HomepageBloc(OfficialRepository(OfficialDataProvider()),
+      PostRepository(PostDataProvider()));
+  final homepagebloc2 = HomepageBloc(OfficialRepository(OfficialDataProvider()),
+      PostRepository(PostDataProvider()));
+  late final List<Official> officials;
 
   List<String> departments = [
     "Kebele Head office",
@@ -26,221 +33,171 @@ List<bool> _showOfficials = [false, false, false, false, false];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
-
       appBar: AppBar(
         title: Text("Kebeleye"),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            Container(
-              height: 300,
-              color: Theme.of(context).appBarTheme.color,
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: AssetImage("assets/profile_picture.png"),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "Samuel Girma",
-                        style: TextStyle(color: Colors.white, fontSize: 24),
-                      ),
-                      Text(
-                        "Kebele Member.",
-                        style: TextStyle(color: Colors.white, fontSize: 15),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            GestureDetector(
-              key:Key('Gesture_detector_1'),
-              onTap: () {
-                context.go('/responsescreen');
-              },
-              child: ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text("Edit Account"),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                context.go("/responsescreen");
-              },
-              child: ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Responses"),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                context.go('/sentfeedbackscreen');
-              },
-              child: ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Sent feedbacks"),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                context.go('/sentresponsescreen');
-              },
-              child: ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Sent Reports"),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                context.go("/loginpage");
-              },
-              child: ListTile(
-                leading: Icon(Icons.logout),
-                title: Text("Logout"),
-              ),
-            ),
-          ],
-        ),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(10, 20, 20, 10),
-              child: TextField(
-                autocorrect: false,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
+      drawer: BlocProvider(
+        create: (context) => homepagebloc,
+        child: BlocConsumer<HomepageBloc, HomePageState>(
+          listener: (context, state) {
+            if (state is OpenEditScreenState) {
+              context.go('/editscreen');
+            }
+            if (state is OpenFeedbackScreenState) {
+              context.go('/sentfeedbackscreen');
+            }
+            if (state is OpenreportsScreenState) {
+              context.go('/sentresponsescreen');
+            }
+            if (state is LogooutEvent) {
+              context.go("/loginpage");
+            }
+            if (state is IdleHomepageState){
+              final List<Official> officials= state.official;
+            }
+          },
+          builder: (context, state) {
+            return Drawer(
+              child: ListView(
+                children: <Widget>[
+                  Container(
+                    height: 300,
+                    color: Theme.of(context).appBarTheme.color,
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 50,
+                          backgroundImage:
+                              AssetImage("assets/profile_picture.png"),
+                        ),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Samuel Girma",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 24),
+                            ),
+                            Text(
+                              "Kebele Member.",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ],
+                        )
+                      ],
                     ),
                   ),
-                  suffixIcon:
-                      IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-                  hintText: "Search for officials.",
-                  hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
-                ),
+                  GestureDetector(
+                    key: Key('Gesture_detector_1'),
+                    onTap: () {
+                      homepagebloc.add(OpenEditScreenEvent());
+                    },
+                    child: ListTile(
+                      leading: Icon(Icons.account_circle),
+                      title: Text("Edit Account"),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      homepagebloc.add(OpenFeedbackEvent());
+                    },
+                    child: ListTile(
+                      leading: Icon(Icons.message),
+                      title: Text("Sent feedbacks"),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      homepagebloc.add(OpenreportsEvent());
+                    },
+                    child: ListTile(
+                      leading: Icon(Icons.message),
+                      title: Text("Sent Reports"),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      homepagebloc.add(LogooutEvent());
+                    },
+                    child: ListTile(
+                      leading: Icon(Icons.logout),
+                      title: Text("Logout"),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ),
-          Expanded(
-            flex: 6,
-            child: SizedBox(
-              height: 50,
-              child: ListView.builder(
-                  itemCount: 5,
-                  itemBuilder: (context, position) {
-                    return GestureDetector(
-                      onTap: () {
-                        // setState(() {
-                        //   _showOfficials[position] = !_showOfficials[position];
-                        // });
-                      },
-                      child: departmentElements(position),
-                    );
-                  }),
-            ),
-          )
-        ],
+            );
+          },
+        ),
+      ),
+      body: BlocProvider(
+        create: (context) => homepagebloc2,
+        child: BlocConsumer<HomepageBloc, HomePageState>(
+          listener: (context, state) {
+            if (state is OpeningOfficialDetailState){
+                homepagebloc.add(FetchOfficialPostsEvent(state.));
+            }
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return BlocBuilder<HomepageBloc, HomePageState>(
+                  builder: (context, state) {
+                    var officials;
+                    return Column(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(10, 20, 20, 10),
+                                child: TextField(
+                                  autocorrect: false,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(20),
+                                      ),
+                                    ),
+                                    suffixIcon: IconButton(
+                                        onPressed: () {
+                                          homepagebloc.add(SearchEvent());
+                                        },
+                                        icon: Icon(Icons.search)),
+                                    hintText: "Search for officials.",
+                                    hintStyle: TextStyle(fontSize: 14, color: Colors.grey),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            
+                              Expanded(
+                                flex: 6,
+                                child: SizedBox(
+                                  height: 50,
+                                  child: ListView.builder(
+                                      itemCount: officials.length,
+                                      itemBuilder: (context, position) {
+                                        return GestureDetector(
+                                          onTap: () {
+                                            homepagebloc.add(OpenOfficialPageEvent());
+                                          },
+                                          child: ListTile(
+
+                                          ),
+                                        );
+                                      }),
+                                ),
+                              )
+                          ],
+                        );
+                  },
+                );
+          },
+        ),
       ),
     );
   }
 
-  Container departmentElements(int position) {
-    return _showOfficials[position]
-        ? Container(
-            child: Column(
-              children: [
-                Container(
-                  height: 60,
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                  ),
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            departments[position],
-                            style: TextStyle(fontSize: 15),
-                          ),
-                          Icon(Icons.arrow_drop_up),
-                        ]),
-                  ),
-                ),
-                SizedBox(
-                    height: 250,
-                    child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: officials.length, 
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                  builder: (BuildContext context) {
-                                return PostPage(
-                                    imageurl: officials[index].offcialimageurl,
-                                    name: officials[index].officialName,
-                                    position: officials[index].position);
-                              }));
-                            },
-                            child: Card(
-                              elevation: 5,
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 5),
-                                    child: Image(
-                                        height: 150,
-                                        width: 100,
-                                        image: AssetImage(
-                                            officials[index].offcialimageurl)),
-                                  ),
-                                  Container(
-                                    padding: EdgeInsets.all(10),
-                                    child: Text(officials[index].officialName),
-                                  ),
-                                  Container(
-                                      padding: EdgeInsets.all(5),
-                                      child: Text(officials[index].position)),
-                                ],
-                              ),
-                            ),
-                          );
-                        })),
-              ],
-            ),
-          )
-        : Container(
-            height: 60,
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              border: Border.all(),
-            ),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      departments[position],
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    Icon(Icons.arrow_drop_down),
-                  ]),
-            ),
-          );
-  }
-}
+ 

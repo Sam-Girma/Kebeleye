@@ -10,7 +10,7 @@ import 'package:kebeleyeapp/pages/officialshomepage.dart';
 import 'package:kebeleyeapp/pages/recieved_response.dart';
 import 'package:kebeleyeapp/pages/sent_feedback_Screen.dart';
 import 'package:kebeleyeapp/pages/sent_report_screen.dart';
-import 'package:kebeleyeapp/pages/settings.dart';
+import 'package:kebeleyeapp/pages/official_edit_.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:go_router/go_router.dart';
 

@@ -6,6 +6,7 @@ import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/loginofficials.dart';
 import 'package:http/http.dart' as http;
 import 'package:go_router/go_router.dart';
+import 'package:kebeleyeapp/pages/members_home_page.dart';
 import 'package:kebeleyeapp/repository/exporter.dart';
 
 import '../Bloc/bloc.dart';
@@ -65,6 +66,9 @@ class LoginPage extends StatelessWidget {
                         homepagebloc.add(LoginScreenEvent());
                       if (state is SignupFailedState){
                         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Signup failed try again.")));
+                      }
+                      if (state is LoginSuccesfulState){
+                        BlocProvider.value(value: homepagebloc, child: MembersHomePage(),);
                       }
                       }
                     },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
-import 'package:kebeleyeapp/pages/settings.dart';
+import 'package:kebeleyeapp/pages/official_edit_.dart';
 
 class OfficialsHomePage extends StatelessWidget {
 

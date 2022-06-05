@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:kebeleyeapp/pages/loginofficials.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
-import 'package:kebeleyeapp/pages/settings.dart';
+import 'package:kebeleyeapp/pages/official_edit_.dart';
 
 void main() {
   Widget makeTestableWidget({required Widget child}) {
