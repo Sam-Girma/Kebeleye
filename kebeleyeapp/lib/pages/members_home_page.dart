@@ -49,6 +49,9 @@ class MembersHomePage extends StatelessWidget {
             if (state is OpenreportsScreenState) {
               context.go('/sentresponsescreen');
             }
+            if (state is DeleteAccountSuccessful){
+              context.go('/');
+            }
             if (state is LogooutEvent) {
               context.go("/loginpage");
             }
@@ -112,6 +115,15 @@ class MembersHomePage extends StatelessWidget {
                     child: ListTile(
                       leading: Icon(Icons.message),
                       title: Text("Sent feedbacks"),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      //homepagebloc.add(DeleteAccountEvent());
+                    },
+                    child: ListTile(
+                      leading: Icon(Icons.message),
+                      title: Text("Delete Account"),
                     ),
                   ),
                   GestureDetector(

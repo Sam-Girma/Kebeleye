@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/memberseditaccount',
         builder: (BuildContext context, GoRouterState state) =>
-            MembersEditScreen(),
+            MembersEditAccountScreen(colindex: 0,),
       ),
       GoRoute(
         path: '/setting',

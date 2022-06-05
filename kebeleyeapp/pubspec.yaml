@@ -34,7 +34,7 @@ dependencies:
   flutter_html: ^2.2.1
   driver_extensions: 
   shared_preferences:
-
+  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,6 +43,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
   http: ^0.13.4
+  sqflite: ^2.0.2+1
 
 dev_dependencies:
   flutter_test:

@@ -11,7 +11,7 @@ void main() {
   }
 
   testWidgets('', (WidgetTester tester) async {
-    await tester.pumpWidget(makeTestableWidget(child: MembersEditAccountScreen()));
+    await tester.pumpWidget(makeTestableWidget(child: MembersEditAccountScreen(colindex: 0,)));
     // await tester.enterText(find.byType(TextFormField), 'hi');
 
   }
