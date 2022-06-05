@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kebeleyeapp/Bloc/bloc.dart';
-import 'package:kebeleyeapp/Dataprovider/dataproviders.dart';
 import 'package:kebeleyeapp/models/models.dart';
 import 'package:kebeleyeapp/pages/loginpage.dart';
 import 'package:kebeleyeapp/pages/tosee_tosend_toreportpage.dart';
 import 'package:kebeleyeapp/repository/exporter.dart';
+import '../Dataprovider/official_dataprovider.dart';
+import '../Dataprovider/posts_data_provider.dart';
 import '../repository/Official_repository.dart';
 import 'members_edit_account_page.dart';
 

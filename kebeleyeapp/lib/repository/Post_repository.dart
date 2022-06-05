@@ -14,8 +14,8 @@ Future<Post> update(String postcontent, Post post) async{
   return dataProvider.update(postcontent, post);
 
 }
-Future<List<Post>> fetchByuser(Official official) async{
-  return dataProvider.fetchByuser(official);
+Future<List<Post>> fetchByOfficial(Official official) async{
+  return dataProvider.fetchByofficial(official);
 }
 Future<void> delete(Post post) async {
   dataProvider.delete(post);

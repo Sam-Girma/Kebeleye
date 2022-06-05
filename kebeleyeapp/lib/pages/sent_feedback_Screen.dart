@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kebeleyeapp/Dataprovider/dataproviders.dart';
+
 import 'package:kebeleyeapp/repository/exporter.dart';
 
 import '../Bloc/bloc.dart';
+import '../Dataprovider/feedback_data_provider.dart';
 
 class SentFeedbackScreen extends StatelessWidget {
   final feedbloc = FeedbackBloc(FeedbackRepository(FeedbackDataProvider()));

@@ -18,7 +18,8 @@ class SignupOfficialEvent extends AuthEvent{
   final String username;
   final String department;
   final String password;
-  SignupOfficialEvent(this.username, this.department, this.password);
+  final String kebeleyeid;
+  SignupOfficialEvent(this.kebeleyeid, this.username, this.department, this.password);
 }
 
 class LoginMemberEvent extends AuthEvent{
@@ -29,6 +30,7 @@ class LoginMemberEvent extends AuthEvent{
 class SignupMemberEvent extends AuthEvent{
   final String username;
   final String password;
-  SignupMemberEvent(this.username, this.password);
+  final String id;
+  SignupMemberEvent(this.username, this.password, this.id);
 }
 class GotoOfficialLoginEvent extends AuthEvent{}

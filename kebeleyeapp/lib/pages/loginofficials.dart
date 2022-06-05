@@ -10,7 +10,8 @@ import 'package:kebeleyeapp/pages/officialshomepage.dart';
 import 'package:kebeleyeapp/repository/exporter.dart';
 
 import '../Bloc/bloc.dart';
-import '../Dataprovider/dataproviders.dart';
+import '../Dataprovider/members__dataprovider.dart';
+
 
 class LoginOfficial extends StatelessWidget {
   final homepagebloc = AuthBloc(
@@ -294,7 +295,7 @@ class LoginOfficial extends StatelessWidget {
                                                 onPressed: () {
                                                   final formValid = _formkey1.currentState!.validate();
                                                   if (!formValid) return;
-                                                  homepagebloc.add(SignupMemberEvent(idcontroller.text, passcontroller.text));
+                                                  homepagebloc.add(SignupMemberEvent(idcontroller.text,idcontroller.text, passcontroller.text));
                                                   //http request to be send
                                                 },
                                                 child: 

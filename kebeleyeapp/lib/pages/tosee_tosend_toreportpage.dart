@@ -3,11 +3,12 @@ import 'package:flutter/painting.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kebeleyeapp/Bloc/bottom_nav_state.dart';
 import 'package:kebeleyeapp/Bloc/botton_nav_bar_event.dart';
-import 'package:kebeleyeapp/Dataprovider/dataproviders.dart';
+
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/repository/exporter.dart';
 
 import '../Bloc/bottom_nav_bloc.dart';
+import '../Dataprovider/posts_data_provider.dart';
 import '../models/models.dart';
 
 
@@ -108,7 +109,7 @@ class PostPageState extends StatelessWidget {
           return BottomNavigationBar(
               currentIndex: index,
               onTap: (value) {
-                navbloc.add(Changepage(index: index, official: Official(department: '', officialName: '')));
+                navbloc.add(Changepage(index: index, official: Official(id:"0",department: '', officialName: '', officialnum: index)));
               },
               selectedItemColor: Theme.of(context).appBarTheme.color,
               items: [

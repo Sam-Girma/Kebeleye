@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:kebeleyeapp/Dataprovider/dataproviders.dart';
 import 'package:kebeleyeapp/repository/Report_Repository.dart';
 
 import '../Bloc/bloc.dart';
+import '../Dataprovider/report_data_provider.dart';
 
 class SentReportScreen extends StatelessWidget {
   final reportbloc = ReportBloc(ReportRepository(ReportDataProvider()));

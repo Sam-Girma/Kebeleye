@@ -30,14 +30,14 @@ class HomepageBloc extends Bloc<HomePageEvent, HomePageState> {
    });
    on<FetchOfficialPostsEvent>((FetchOfficialPostsEvent event, Emitter emit)async{
      emit(FetchingPosts());
-     final posts = await postRepository.fetchByuser(event.official);
+     final posts = await postRepository.fetchByOfficial(event.official);
      emit(FetchingPostsSuccessful(posts));
    });
     on<DeleteAccountEvent>((DeleteAccountEvent event, Emitter emit){
      emit(DelitingAcountState());
      
      try{
-       final member = officialRepository.delete(event.kebeleid);
+       final member = officialRepository.delete(event.official);
        emit(DeleteAccountSuccessful());
      }
      catch(error){

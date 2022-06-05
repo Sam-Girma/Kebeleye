@@ -4,8 +4,8 @@ class MembersRepository{
   final MemberDataProvider dataProvider;
   MembersRepository(this.dataProvider);
 
-Future<Member> create(String username, String password) async{
-  return dataProvider.create(username, password);
+Future<Member> create(String username, String password, String id) async{
+  return dataProvider.create(id,username, password);
 }
 
 Future<Member> update(String username, Member member) async{
@@ -15,7 +15,7 @@ Future<Member> update(String username, Member member) async{
 Future<Member> fetchuser(String username, String password) async{
   return dataProvider.fetchuser(username, password);
 }
-Future<void> delete(int id) async {
-  dataProvider.delete(id);
+Future<void> delete(Member user) async {
+  dataProvider.delete(user);
 }
 }

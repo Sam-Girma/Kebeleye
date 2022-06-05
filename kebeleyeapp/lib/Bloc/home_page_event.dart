@@ -26,6 +26,6 @@ class FetchOfficialPostsEvent extends HomePageEvent{
   FetchOfficialPostsEvent(this.official);
 }
 class DeleteAccountEvent extends HomePageEvent{
-  final int kebeleid;
-  DeleteAccountEvent(this.kebeleid);
+  final Official official;
+  DeleteAccountEvent(this.official);
 }

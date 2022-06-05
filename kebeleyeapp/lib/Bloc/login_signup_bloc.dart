@@ -30,7 +30,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       
       emit(SignUpingState());
       try{
-        final official = await officialRepository.create(event.username, event.department, event.password);
+        final official = await officialRepository.create(event.kebeleyeid,event.username, event.department, event.password);
         emit(SignupSuccesfulState(official));
       }
       catch(error){
@@ -52,7 +52,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on <SignupMemberEvent> ((SignupMemberEvent event, Emitter emit)async{
       emit(SignUpingState());
       try{
-        final member = await membersRepository.create(event.username, event.password);
+        final member = await membersRepository.create(event.username, event.password, event.id);
         emit(SignupSuccesfulState(member));
 
       }

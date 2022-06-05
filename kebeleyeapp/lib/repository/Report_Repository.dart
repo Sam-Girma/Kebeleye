@@ -1,4 +1,5 @@
 import 'package:kebeleyeapp/models/members.dart';
+import 'package:kebeleyeapp/models/models.dart';
 
 import '../Dataprovider/official_dataprovider.dart';
 import '../Dataprovider/report_data_provider.dart';
@@ -16,8 +17,8 @@ Future<Report> update(String reportcontent, Report report) async{
 
 }
 
-Future<List<Report>> fetchreportByuser(Member user) async{
-  return dataProvider.fetchreportByuser(user);
+Future<List<Report>> fetchreportByuser(Member member) async{
+  return dataProvider.fetchreportByuser(member);
 }
 Future<void> delete(Report report) async {
   dataProvider.delete(report);

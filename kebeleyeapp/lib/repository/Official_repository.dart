@@ -4,8 +4,8 @@ class OfficialRepository{
   final OfficialDataProvider dataProvider;
   OfficialRepository(this.dataProvider);
 
-Future<Official> create(String username, String department, String password) async{
-  return dataProvider.create(username, department, password);
+Future<Official> create(String kebeleye_id, String username, String department, String password) async{
+  return dataProvider.create(kebeleye_id, username, department, password);
 }
 
 Future<Official> update(String username, Official official) async{
@@ -15,8 +15,8 @@ Future<Official> update(String username, Official official) async{
 Future<List<Official>> fetchall() async{
   return dataProvider.fetchall();
 }
-Future<void> delete(int id) async {
-  dataProvider.delete(id);
+Future<void> delete(Official official) async {
+  dataProvider.delete(official);
 }
 
 Future<Official> fetchOfficial(String username, String password) async{
