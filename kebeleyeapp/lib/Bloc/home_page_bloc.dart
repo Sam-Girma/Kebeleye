@@ -33,6 +33,17 @@ class HomepageBloc extends Bloc<HomePageEvent, HomePageState> {
      final posts = await postRepository.fetchByuser(event.official);
      emit(FetchingPostsSuccessful(posts));
    });
+    on<DeleteAccountEvent>((DeleteAccountEvent event, Emitter emit){
+     emit(DelitingAcountState());
+     
+     try{
+       final member = officialRepository.delete(event.kebeleid);
+       emit(DeleteAccountSuccessful());
+     }
+     catch(error){
+       emit(DeleteAccountFailed());
+     }
+   });
    on<OpenEditScreenEvent> ((OpenEditScreenEvent event, Emitter emit){
      emit(OpenEditScreenState());
    });

@@ -8,21 +8,24 @@ import '../Bloc/bloc.dart';
 
 class SentReportScreen extends StatelessWidget {
   final reportbloc = ReportBloc(ReportRepository(ReportDataProvider()));
+  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Sent Reports"),
-        ),
-        body: BlocConsumer<FeedbackBloc, FeedbackState>(
+    return BlocProvider(
+      create: (context) => reportbloc,
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text("Sent Reports"),
+          ),
+          body: BlocConsumer<ReportBloc, ReportState>(
             listener: (context, state) {
               // TODO: implement listener
-              if (state is ToupdateFeedbackEvent){
+              if (state is ToupdateFeedbackEvent) {
                 context.go("/editofficialpost");
               }
             },
             builder: (context, state) {
-              return BlocBuilder<FeedbackBloc, FeedbackState>(
+              return BlocBuilder<ReportBloc, ReportState>(
                 builder: (context, state) {
                   //feedbloc.add(MembersFeedbackFetchEvent());
                   return state is FetchingReportState
@@ -31,29 +34,29 @@ class SentReportScreen extends StatelessWidget {
                             child: CircularProgressIndicator(),
                           ),
                         )
-                      : state is FetchingReportSuccessful
+                      : (state is FetchingReportSuccessful)
                           ? ListView.builder(
-                              itemCount: state.,
+                              itemCount: state.reports.length,
                               itemBuilder: (context, index) {
                                 return ListTile(
                                   title: Text(state.reports
                                       .elementAt(index)
-                                      .feedbackcontent),
-                                  subtitle: Text(state.report
+                                      .reportcontent),
+                                  subtitle: Text(state.reports
                                       .elementAt(index)
                                       .official
                                       .officialName),
                                   onTap: () {
-                                    reportbloc.add(ToupdateFeedbackEvent(
+                                    reportbloc.add(ToupdateReportEvent(
                                         state.reports.elementAt(index)));
                                   },
                                 );
                               })
-                          : Center(child:Text("Fetching Feedback Failed."));
+                          : Center(child: Text("Fetching Report Failed."));
                 },
               );
             },
-          ));
-        
+          )),
+    );
   }
 }

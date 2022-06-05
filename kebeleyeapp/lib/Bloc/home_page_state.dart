@@ -22,4 +22,7 @@ class SearchingOfficialState extends HomePageState{}
 class OpenEditScreenState extends HomePageState{}
 class OpenFeedbackScreenState extends HomePageState{}
 class OpenreportsScreenState extends HomePageState{}
-
+class DelitingAcountState extends HomePageState{}
+class AccountDeletedState extends HomePageState{}
+class DeleteAccountSuccessful extends HomePageState{}
+class DeleteAccountFailed extends HomePageState{}
