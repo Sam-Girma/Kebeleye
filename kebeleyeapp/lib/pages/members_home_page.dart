@@ -8,7 +8,7 @@ import 'package:kebeleyeapp/pages/tosee_tosend_toreportpage.dart';
 import 'package:kebeleyeapp/repository/exporter.dart';
 import '../repository/Official_repository.dart';
 import 'members_edit_account_page.dart';
-import 'recieved_response.dart';
+
 import 'sent_feedback_Screen.dart';
 import 'sent_report_screen.dart';
 import 'loginpage.dart';
@@ -52,8 +52,12 @@ class MembersHomePage extends StatelessWidget {
             if (state is LogooutEvent) {
               context.go("/loginpage");
             }
+            if (state is FetchingallOfficialsState){
+              homepagebloc.add(FetchallOfficialsEvent());
+            }
             if (state is IdleHomepageState){
               final List<Official> officials= state.official;
+            
             }
           },
           builder: (context, state) {
@@ -136,18 +140,15 @@ class MembersHomePage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => homepagebloc2,
-        child: BlocConsumer<HomepageBloc, HomePageState>(
-          listener: (context, state) {
-            if (state is OpeningOfficialDetailState){
-                homepagebloc.add(FetchOfficialPostsEvent(state.));
-            }
-            // TODO: implement listener
-          },
+        child: BlocBuilder<HomepageBloc, HomePageState>(
           builder: (context, state) {
             return BlocBuilder<HomepageBloc, HomePageState>(
                   builder: (context, state) {
-                    var officials;
-                    return Column(
+                    if (state is FetchingOfficialsFailed){
+                            return const Center(child: Text("Failed Fetching officials"));
+                            }
+                    return 
+                    Column(
                           children: [
                             Expanded(
                               child: Padding(
@@ -178,12 +179,15 @@ class MembersHomePage extends StatelessWidget {
                                   height: 50,
                                   child: ListView.builder(
                                       itemCount: officials.length,
-                                      itemBuilder: (context, position) {
+                                      itemBuilder: (context, index) {
                                         return GestureDetector(
                                           onTap: () {
                                             homepagebloc.add(OpenOfficialPageEvent());
                                           },
                                           child: ListTile(
+                                            title: Text(officials.elementAt(index).officialName),
+                                            subtitle: Text(officials.elementAt(index).department),
+                                            onTap: (){homepagebloc2.add(FetchOfficialPostsEvent(officials.elementAt(index)));},
 
                                           ),
                                         );
@@ -200,4 +204,4 @@ class MembersHomePage extends StatelessWidget {
     );
   }
 
- 
+}

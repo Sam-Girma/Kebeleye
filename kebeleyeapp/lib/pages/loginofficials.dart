@@ -12,7 +12,7 @@ import 'package:kebeleyeapp/repository/exporter.dart';
 import '../Bloc/bloc.dart';
 import '../Dataprovider/dataproviders.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginOfficial extends StatelessWidget {
   final homepagebloc = AuthBloc(
       membersRepository: MembersRepository(MemberDataProvider()),
       officialRepository: OfficialRepository(OfficialDataProvider()));

@@ -1,45 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:kebeleyeapp/Dataprovider/dataproviders.dart';
+import 'package:kebeleyeapp/repository/Report_Repository.dart';
 
 import '../Bloc/bloc.dart';
 
-class SentReportScreen extends StatefulWidget {
-  const SentReportScreen({Key? key}) : super(key: key);
-
-  @override
-  State<SentReportScreen> createState() => _SentReportScreenState();
-}
-
-class _SentReportScreenState extends State<SentReportScreen> {
+class SentReportScreen extends StatelessWidget {
+  final reportbloc = ReportBloc(ReportRepository(ReportDataProvider()));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text("Sent Reports"),
         ),
-        body: BlocBuilder<ReportBloc, ReportState>(
-          builder: (context, state) {
-            final ReportBloc bloc = BlocProvider.of<ReportBloc>(context);
-
-            bloc.add(FetchReportsByname());
-            return state is FetchingfeedState
-                ? Container(
-                    child: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  )
-                : state is FetchedfeedState
-                    ? ListView.builder(
-                        itemCount: state.fetchedData.length,
-                        itemBuilder: (context, index) {
-                          return Card(
-                            child: Text(state.fetchedData[index]),
-                          );
-                        })
-                    : Container();
-          },
-        ) //ListView.builder(itemBuilder: 10), to be connected to the database
-
-        );
+        body: BlocConsumer<FeedbackBloc, FeedbackState>(
+            listener: (context, state) {
+              // TODO: implement listener
+              if (state is ToupdateFeedbackEvent){
+                context.go("/editofficialpost");
+              }
+            },
+            builder: (context, state) {
+              return BlocBuilder<FeedbackBloc, FeedbackState>(
+                builder: (context, state) {
+                  //feedbloc.add(MembersFeedbackFetchEvent());
+                  return state is FetchingReportState
+                      ? Container(
+                          child: Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                        )
+                      : state is FetchingReportSuccessful
+                          ? ListView.builder(
+                              itemCount: state.,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  title: Text(state.reports
+                                      .elementAt(index)
+                                      .feedbackcontent),
+                                  subtitle: Text(state.report
+                                      .elementAt(index)
+                                      .official
+                                      .officialName),
+                                  onTap: () {
+                                    reportbloc.add(ToupdateFeedbackEvent(
+                                        state.reports.elementAt(index)));
+                                  },
+                                );
+                              })
+                          : Center(child:Text("Fetching Feedback Failed."));
+                },
+              );
+            },
+          ));
+        
   }
 }

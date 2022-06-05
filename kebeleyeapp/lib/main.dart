@@ -7,7 +7,7 @@ import 'package:kebeleyeapp/pages/members_edit_account_page.dart';
 import 'package:kebeleyeapp/pages/members_home_page.dart';
 import 'package:kebeleyeapp/pages/mystate.dart';
 import 'package:kebeleyeapp/pages/officialshomepage.dart';
-import 'package:kebeleyeapp/pages/recieved_response.dart';
+
 import 'package:kebeleyeapp/pages/sent_feedback_Screen.dart';
 import 'package:kebeleyeapp/pages/sent_report_screen.dart';
 import 'package:kebeleyeapp/pages/official_edit_.dart';
@@ -70,15 +70,11 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, GoRouterState state) =>
             SentFeedbackScreen(),
       ),
-      GoRoute(
-        path: '/responsescreen',
-        builder: (BuildContext context, GoRouterState state) =>
-            ResponseScreen(),
-      ),
+      
       GoRoute(
         path: '/memberseditaccount',
         builder: (BuildContext context, GoRouterState state) =>
-            MembersEditAccountScreen(),
+            MembersEditScreen(),
       ),
       GoRoute(
         path: '/setting',

@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:kebeleyeapp/materials/colors.dart';
 import 'package:kebeleyeapp/pages/mystate.dart';
 
-class setting extends StatelessWidget {
+// ignore: must_be_immutable
+class MembersEditAccountScreen extends StatelessWidget {
   List colors = [Colors.purple, Colors.grey.shade900];
   final int colindex;
-  setting({Key? key, required this.colindex}) : super(key: key);
+  MembersEditAccountScreen({Key? key, required this.colindex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
