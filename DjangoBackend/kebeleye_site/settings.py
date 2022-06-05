@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'kebeleye_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'henok',
-        'USER': 'postgres',
-        'PASSWORD': '227212',
-        'HOST': '127.0.0.1',
+        'NAME': 'kebele_db',
+        'USER': 'kebele_admin',
+        'PASSWORD': 'temppasswd',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

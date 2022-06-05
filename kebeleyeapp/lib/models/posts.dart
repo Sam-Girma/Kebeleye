@@ -1,23 +1,19 @@
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:kebeleyeapp/models/models.dart';
 
-class Post extends Equatable{
+class Post extends Equatable {
   String postcontent;
   String datetime;
-  bool? is_report = false;
-  bool? is_announcement = false;
-  bool? is_post = true;
+  int? id;
+  Official official;
   Post({required this.postcontent, required this.datetime});
 
   @override
   // TODO: implement props
   List<Object?> get props => throw UnimplementedError();
-  
-  factory Post.fromJson(Map<String, dynamic> json){
-    return Post(postcontent: json['postcontent'], datetime: json['datetime']);
+
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(postcontent: json['post'], datetime: json['datetime']);
   }
-
 }
-
-
