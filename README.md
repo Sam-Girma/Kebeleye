@@ -1,14 +1,7 @@
-# Kebeleye
+# Kebeleye - name for a small administrative unit in Ethiopia.
 
-Group Members   	     	 
-
-Samuel Girma	    id no    UGR/6303/12   section  1
-
-Henok Mekuanint  id no	  UGR/2272/12  	section   1
-
-Joshua Tesfaye  id no	    UGR/0359/12   section	 2
-                                                                                                                                   
-As the title gives some information, this application is meant to connect kebele officials with kebele members. It targets a local problem of kebele bureaucracy. This makes kebele officials work according to their role correctly. On the application both kebele members and kebele officals will have separate accounts. The kebele official will update information daily so that kebele members will be informed and don't waste their time, money, and any other resources because of lack of information. They can also see comming feedback from kebele members and information from kebele head. The kebele members can see updates and can also give feedback for the official. They can also report an official that is not working on his role correctly. They can see the status of their report.
+                                                                                                                              
+As the title gives some information, this application is meant to connect kebele officials with kebele members. It targets a local problem of kebele bureaucracy. The application is intended to make kebele officials work transparent. On the application both kebele members and kebele officals will have separate accounts. The kebele official will post information so that kebele members will be informed in hand incase any ocassional event arrives. The kebele members can see updates and can also give feedback for the official. They can also report an official that is not working on his role correctly. They can see the status of their report.
 
 Authentication features include:
 
@@ -22,4 +15,4 @@ Authentication features include:
 
 5. Admin can ban Kebele members or Kebele officials.
 
-6. Admin can remove either or both kebele member or/and kebele official roles from the system.
+6. Admin can remove either both kebele member and kebele official or one of the roles from the system.
